@@ -70,6 +70,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         b11.setOnTouchListener(touchListener);
         b12.setOnTouchListener(touchListener);
 
+
+        while(true){
+            ZenTone.getInstance().generate(440, 1, 1, new ToneStoppedListener() {
+                @Override
+                public void onToneStopped() {
+
+                }
+            });
+            ZenTone.getInstance().stop();
+        }
+
     }
 
     @Override
@@ -94,16 +105,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             default:
                 //return super.dispatchKeyEvent(event); commented this out to make test code reachable
         }
-
-        while(true){
-            ZenTone.getInstance().generate(440, 1, 1, new ToneStoppedListener() {
-                @Override
-                public void onToneStopped() {
-
-                }
-            });
-            ZenTone.getInstance().stop();
-        }
+        //added this
+        return false;
     }
 
 
