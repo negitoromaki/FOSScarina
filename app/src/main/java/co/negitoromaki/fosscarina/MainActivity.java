@@ -69,7 +69,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //Buttons 9 and 10 are volume buttons
         b11.setOnTouchListener(touchListener);
         b12.setOnTouchListener(touchListener);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 53cc9d27c83f1fa0c3b1d6c81fb86ef2c2432c87
     }
 
     @Override
