@@ -12,16 +12,6 @@
     android:layout_marginLeft="0dp"
     android:layout_marginRight="0dp">
 
-    <ToggleButton android:id="@+id/vol_lock"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:textOff="@string/vol_lock_off"
-        android:textOn="@string/vol_lock_on"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"/>
-
     <LinearLayout
         android:id="@+id/parent_center"
         android:layout_width="1dp"
