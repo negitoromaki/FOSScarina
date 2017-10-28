@@ -96,23 +96,23 @@ class TouchListener12 implements OnTouchListener {
 class TouchListenerVol extends Activity {
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if ((keyCode == KeyEvent.KEYCODE_VOLUME_DOWN)){
-            //Do something
-        } else if ((keyCode == KeyEvent.KEYCODE_VOLUME_UP)){
-            //Do something
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        int action = event.getAction();
+        int keyCode = event.getKeyCode();
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_VOLUME_UP:
+                if (action == KeyEvent.ACTION_DOWN) {
+                    //TODO
+                }
+                return true;
+            case KeyEvent.KEYCODE_VOLUME_DOWN:
+                if (action == KeyEvent.ACTION_DOWN) {
+                    //TODO
+                }
+                return true;
+            default:
+                return super.dispatchKeyEvent(event);
         }
-        return true;
-    }
-
-    @Override
-    public boolean onKeyUp(int keyCode, KeyEvent event) {
-        if ((keyCode == KeyEvent.KEYCODE_VOLUME_DOWN)){
-            //Do something
-        } else if ((keyCode == KeyEvent.KEYCODE_VOLUME_UP)){
-            //Do something
-        }
-        return true;
     }
 
 }
