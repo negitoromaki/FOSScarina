@@ -10,7 +10,8 @@
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     android:layout_marginLeft="0dp"
-    android:layout_marginRight="0dp">
+    android:layout_marginRight="0dp"
+    android:background="#5dabc0">
 
     <LinearLayout
         android:id="@+id/parent_center"
@@ -20,44 +21,60 @@
         android:layout_centerVertical="true" >
     </LinearLayout>
 
-    <Button android:id="@+id/button1"
+    <ImageButton android:id="@+id/button1"
+        android:src="@drawable/selector"
+        android:scaleType="fitCenter"
+        android:padding="0dp"
+        android:background="@null"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:text="1"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="30dp"
         android:layout_alignBaseline="@+id/parent_center"
         android:layout_alignLeft="@+id/parent_center"
         android:layout_alignBottom="@+id/parent_center"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/button2"
+        android:src="@drawable/selector"
+        android:scaleType="fitCenter"
+        android:padding="0dp"
+        android:background="@null"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:text="2"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
         android:layout_alignBaseline="@+id/parent_center"
         android:layout_alignLeft="@+id/parent_center"
         android:layout_alignTop="@+id/parent_center"/>
 
-    <Button android:id="@+id/button3"
+    <ImageButton android:id="@+id/button3"
+        android:src="@drawable/selector"
+        android:scaleType="fitCenter"
+        android:padding="0dp"
+        android:background="@null"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:text="3"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="30dp"
         android:layout_alignBaseline="@+id/parent_center"
         android:layout_alignRight="@+id/parent_center"
         android:layout_alignBottom="@+id/parent_center"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/button4"
+        android:src="@drawable/selector"
+        android:scaleType="fitCenter"
+        android:padding="0dp"
+        android:background="@null"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:text="4"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
         android:layout_alignBaseline="@+id/parent_center"
         android:layout_alignRight="@+id/parent_center"
         android:layout_alignTop="@+id/parent_center"/>

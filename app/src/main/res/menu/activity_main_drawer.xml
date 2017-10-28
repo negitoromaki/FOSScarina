@@ -9,7 +9,6 @@
             android:id="@+id/nav_item_ocarina_12_hole"
             android:title="@string/nav_ocarina_12_hole"
             android:icon="@drawable/nav_icon_12o" />
-
         <item
             android:id="@+id/nav_item_ocarina_4_hole"
             android:title="@string/nav_ocarina_4_hole"
