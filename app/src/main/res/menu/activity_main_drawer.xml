@@ -5,13 +5,12 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="12 Hole" />
+            android:id="@+id/ocarina_12_hole"
+            android:title="12 Hole Ocarina" />
+        <!-- android:icon="" -->
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="4 Hole" />
+            android:id="@+id/ocarina_4_hole"
+            android:title="4 Hole Ocarina" />
     </group>
 
 </menu>

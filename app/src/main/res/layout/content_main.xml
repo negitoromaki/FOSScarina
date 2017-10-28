@@ -18,7 +18,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="main"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp">
         <Button android:id="@+id/button1"
