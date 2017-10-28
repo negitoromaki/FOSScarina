@@ -36,18 +36,18 @@ public class OcarinaTouchListener implements View.OnTouchListener {
         //test
         buttons[0] = true;
 
-    for (boolean e :buttons) {
+/*    for (boolean e :buttons) {
             // change to different tones
             if(e){
-                ZenTone.getInstance().generate(440, 1, 1, new ToneStoppedListener() {
+ */               ZenTone.getInstance().generate(440, 1, 1, new ToneStoppedListener() {
                     @Override
                     public void onToneStopped() {
 
                     }
+
                 });
+                ZenTone.getInstance().stop();
             }
 
-        }
-    }
 
-}
+        }
