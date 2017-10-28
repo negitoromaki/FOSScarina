@@ -21,7 +21,7 @@ public class OcarinaTouchListener implements View.OnTouchListener {
         } else if (event.equals(MotionEvent.ACTION_UP)) {
             buttons[v.getId()] = false;
         }
-    this.buttonEval(this.getButtons());
+
         return true;
     }
 
@@ -32,11 +32,11 @@ public class OcarinaTouchListener implements View.OnTouchListener {
         buttons[number - 1] = b;
     }
 
-    public static void buttonEval(boolean[] buttons){
+    public static void buttonEval(){
         //test
         buttons[0] = true;
 
-/*    for (boolean e :buttons) {
+ /* for (boolean e :buttons) {
             // change to different tones
             if(e){
  */               ZenTone.getInstance().generate(440, 1, 1, new ToneStoppedListener() {
