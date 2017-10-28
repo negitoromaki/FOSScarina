@@ -22,18 +22,31 @@ public class Ocarina12HoleFragment extends Fragment {
             container.removeAllViews();
         }
 
-        Button volLock = (Button) container.findViewById(R.id.vol_lock);
-        Button b1 = (Button) container.findViewById(R.id.button1);
-        Button b2 = (Button) container.findViewById(R.id.button2);
-        Button b3 = (Button) container.findViewById(R.id.button3);
-        Button b4 = (Button) container.findViewById(R.id.button4);
-        Button b5 = (Button) container.findViewById(R.id.button5);
-        Button b6 = (Button) container.findViewById(R.id.button6);
-        Button b7 = (Button) container.findViewById(R.id.button7);
-        Button b8 = (Button) container.findViewById(R.id.button8);
+        /*
+
+        Button volLock;
+        volLock = (Button) container.findViewById(R.id.vol_lock);
+        Button b1;
+        b1 = (Button) container.findViewById(R.id.button1);
+        Button b2;
+        b2 = (Button) container.findViewById(R.id.button2);
+        Button b3;
+        b3 = (Button) container.findViewById(R.id.button3);
+        Button b4;
+        b4 = (Button) container.findViewById(R.id.button4);
+        Button b5;
+        b5 = (Button) container.findViewById(R.id.button5);
+        Button b6;
+        b6 = (Button) container.findViewById(R.id.button6);
+        Button b7;
+        b7 = (Button) container.findViewById(R.id.button7);
+        Button b8;
+        b8 = (Button) container.findViewById(R.id.button8);
         //Buttons 9 and 10 are volume buttons
-        Button b11 = (Button) container.findViewById(R.id.button11);
-        Button b12 = (Button) container.findViewById(R.id.button12);
+        Button b11;
+        b11 = (Button) container.findViewById(R.id.button11);
+        Button b12;
+        b12 = (Button) container.findViewById(R.id.button12);
 
 
         TouchListener12 touchListener = new TouchListener12();
@@ -50,9 +63,13 @@ public class Ocarina12HoleFragment extends Fragment {
         b11.setOnTouchListener(touchListener);
         b12.setOnTouchListener(touchListener);
 
+        */
+
         return inflater.inflate(R.layout.ocarina_12_hole, container, false);
     }
 }
+
+/*
 
 class TouchListener12 implements OnTouchListener {
 
@@ -120,3 +137,5 @@ class TouchListenerVol extends Activity {
     }
 
 }
+
+*/

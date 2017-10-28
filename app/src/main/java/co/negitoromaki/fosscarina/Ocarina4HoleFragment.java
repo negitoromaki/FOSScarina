@@ -14,16 +14,23 @@ import android.widget.Button;
  */
 
 public class Ocarina4HoleFragment extends Fragment {
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (container != null) {
             container.removeAllViews();
         }
 
-        Button b1 = (Button) container.findViewById(R.id.button1);
-        Button b2 = (Button) container.findViewById(R.id.button2);
-        Button b3 = (Button) container.findViewById(R.id.button3);
-        Button b4 = (Button) container.findViewById(R.id.button4);
+        /*
+        assert container != null;
+        Button b1;
+        b1 = (Button) container.findViewById(R.id.button1);
+        Button b2;
+        b2 = (Button) container.findViewById(R.id.button2);
+        Button b3;
+        b3 = (Button) container.findViewById(R.id.button3);
+        Button b4;
+        b4 = (Button) container.findViewById(R.id.button4);
 
         TouchListener4 touchListener = new TouchListener4();
         b1.setOnTouchListener(touchListener);
@@ -31,11 +38,14 @@ public class Ocarina4HoleFragment extends Fragment {
         b3.setOnTouchListener(touchListener);
         b4.setOnTouchListener(touchListener);
 
+        */
+
         return inflater.inflate(R.layout.ocarina_4_hole, container, false);
     }
 
 }
 
+/*
 class TouchListener4 implements OnTouchListener {
 
     @Override
@@ -58,3 +68,4 @@ class TouchListener4 implements OnTouchListener {
     }
 
 }
+*/

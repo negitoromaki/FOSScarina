@@ -29,9 +29,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        Ocarina12HoleFragment oc = new Ocarina12HoleFragment();
-        setFragment(oc);
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_ocarina_12_hole,oc).commit();
+        setFragment(new Ocarina12HoleFragment());
     }
 
     @Override
