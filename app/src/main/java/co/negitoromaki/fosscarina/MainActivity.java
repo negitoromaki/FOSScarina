@@ -69,18 +69,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //Buttons 9 and 10 are volume buttons
         b11.setOnTouchListener(touchListener);
         b12.setOnTouchListener(touchListener);
-
-
-        while(true){
-            ZenTone.getInstance().generate(440, 1, 1, new ToneStoppedListener() {
-                @Override
-                public void onToneStopped() {
-
-                }
-            });
-            ZenTone.getInstance().stop();
-        }
-
     }
 
     @Override
@@ -128,9 +116,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_item_ocarina_12_hole) {
             setFragment(new Ocarina12HoleFragment());
             currentOcarina = "12Hole";
+            while(true){
+                ZenTone.getInstance().generate(440, 1, 1, new ToneStoppedListener() {
+                    @Override
+                    public void onToneStopped() {
+
+                    }
+                });
+                ZenTone.getInstance().stop();
+            }
         } else if (id == R.id.nav_item_ocarina_4_hole) {
             setFragment(new Ocarina4HoleFragment());
             currentOcarina = "4Hole";
+            while(true){
+                ZenTone.getInstance().generate(440, 1, 1, new ToneStoppedListener() {
+                    @Override
+                    public void onToneStopped() {
+
+                    }
+                });
+                ZenTone.getInstance().stop();
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
