@@ -15,6 +15,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ToggleButton;
 
+import in.excogitation.zentone.library.ToneStoppedListener;
+import in.excogitation.zentone.library.ZenTone;
+
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -70,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
+     public boolean dispatchKeyEvent(KeyEvent event) {
         int action = event.getAction();
         int keyCode = event.getKeyCode();
         switch (keyCode) {
@@ -89,9 +92,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
                 return true;
             default:
-                return super.dispatchKeyEvent(event);
+                //return super.dispatchKeyEvent(event); commented this out to make test code reachable
+        }
+
+        while(true){
+            ZenTone.getInstance().generate(440, 1, 1, new ToneStoppedListener() {
+                @Override
+                public void onToneStopped() {
+
+                }
+            });
+            ZenTone.getInstance().stop();
         }
     }
+
 
     @Override
     public void onBackPressed() {

@@ -10,6 +10,8 @@ import android.view.autofill.AutofillId;
 
 import java.util.ArrayList;
 
+import in.excogitation.zentone.library.ZenTone;
+
 /**
  * logic from https://stackoverflow.com/questions/2413426/playing-an-arbitrary-tone-with-android
  * make an enum for tones?
@@ -19,7 +21,7 @@ import java.util.ArrayList;
 
 public class SoundGenerator extends AppCompatActivity {
 
-
+/*
     double toneTime; // make it onHold();
     int rate;
     int samples;
@@ -91,12 +93,15 @@ public class SoundGenerator extends AppCompatActivity {
     }
 
     void play(){
+
         AudioTrack at = new AudioTrack(AudioManager.STREAM_MUSIC,rate, AudioFormat.CHANNEL_OUT_MONO,AudioFormat.ENCODING_PCM_16BIT, sound.length, AudioTrack.MODE_STATIC);
 
         at.write(sound,0,sound.length);
         at.play();
     }
 
+
+*/
 }
 
 
