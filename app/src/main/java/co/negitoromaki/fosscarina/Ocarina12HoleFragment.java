@@ -9,6 +9,7 @@ import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.view.KeyEvent;
+import android.app.Activity;
 
 /**
  * Created by csculley on 10/28/17.
@@ -55,7 +56,7 @@ class TouchListener12 implements OnTouchListener {
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        switch(v.getId()){
+        switch (v.getId()) {
             case 1:
                 //do stuff for button 1
                 break;
@@ -90,8 +91,22 @@ class TouchListener12 implements OnTouchListener {
         return true;
     }
 
+}
+
+class TouchListenerVol extends Activity {
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_VOLUME_DOWN)){
+            //Do something
+        } else if ((keyCode == KeyEvent.KEYCODE_VOLUME_UP)){
+            //Do something
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_VOLUME_DOWN)){
             //Do something
         } else if ((keyCode == KeyEvent.KEYCODE_VOLUME_UP)){
