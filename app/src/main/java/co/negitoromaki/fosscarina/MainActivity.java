@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             setFragment(new Ocarina12HoleFragment());
             currentOcarina = "12Hole";
             while(true){
-                ZenTone.getInstance().generate(440, 1, 1, new ToneStoppedListener() {
+                ZenTone.getInstance().generate(440, 100000, 1, new ToneStoppedListener() {
                     @Override
                     public void onToneStopped() {
 
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             setFragment(new Ocarina4HoleFragment());
             currentOcarina = "4Hole";
             while(true){
-                ZenTone.getInstance().generate(440, 1, 1, new ToneStoppedListener() {
+                ZenTone.getInstance().generate(440, 100000, 1, new ToneStoppedListener() {
                     @Override
                     public void onToneStopped() {
 
