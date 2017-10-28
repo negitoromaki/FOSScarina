@@ -11,7 +11,7 @@
     app:layout_constraintTop_toTopOf="parent"
     android:layout_marginLeft="0dp"
     android:layout_marginRight="0dp"
-    android:background="#5dabc0">
+    android:background="#8bbcbc">
 
     <ToggleButton android:id="@+id/vol_lock"
         android:layout_width="100dp"
