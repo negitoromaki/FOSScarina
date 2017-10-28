@@ -60,7 +60,9 @@ class TouchListener12 implements OnTouchListener {
     public boolean onTouch(View v, MotionEvent event) {
         switch (v.getId()) {
             case 1:
-                //do stuff for button 1
+                SoundGenerator sg = new SoundGenerator();
+                sg.spawn();
+                sg.play();
                 break;
             case 2:
                 //do stuff for button 2
