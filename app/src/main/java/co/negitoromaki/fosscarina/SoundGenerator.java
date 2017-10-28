@@ -19,9 +19,9 @@ import java.util.ArrayList;
 
 public class SoundGenerator extends AppCompatActivity {
 
-    private int toneTime = 1; // make it onHold();
+    private double toneTime = .01; // make it onHold();
     private int rate = 8000;
-    private int samples = toneTime * rate;
+    private int samples = (int) Math.ceil(toneTime * rate);
     private double sampleSet[] = new double[samples];
     private double freq = 440; // make this a conditional to assign different tones
     private byte sound[] = new byte[2 * samples];
