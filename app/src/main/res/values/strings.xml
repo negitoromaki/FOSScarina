@@ -3,6 +3,9 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="action_settings">Settings</string>
+    <string name="fosscarina_welcome">Welcome to FOSScarina</string>
+    <string name="nav_ocarina_12_hole">12 Hole Ocarina</string>
+    <string name="nav_ocarina_4_hole">4 Hole Ocarina</string>
+    <string name="vol_lock_on">Volume: Locked</string>
+    <string name="vol_lock_off">Volume: Unlocked</string>
 </resources>

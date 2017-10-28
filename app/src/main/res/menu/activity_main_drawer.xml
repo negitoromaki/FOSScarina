@@ -4,13 +4,16 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
-            android:id="@+id/ocarina_12_hole"
-            android:title="12 Hole Ocarina" />
-        <!-- android:icon="" -->
+            android:id="@+id/nav_item_ocarina_12_hole"
+            android:title="@string/nav_ocarina_12_hole"
+            android:icon="@drawable/nav_icon_12o" />
+
         <item
-            android:id="@+id/ocarina_4_hole"
-            android:title="4 Hole Ocarina" />
+            android:id="@+id/nav_item_ocarina_4_hole"
+            android:title="@string/nav_ocarina_4_hole"
+            android:icon="@drawable/nav_icon_4o" />
     </group>
 
 </menu>
