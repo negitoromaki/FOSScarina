@@ -22,6 +22,7 @@ public class Ocarina12HoleFragment extends Fragment {
             container.removeAllViews();
         }
 
+        Button volLock = (Button) container.findViewById(R.id.vol_lock);
         Button b1 = (Button) container.findViewById(R.id.button1);
         Button b2 = (Button) container.findViewById(R.id.button2);
         Button b3 = (Button) container.findViewById(R.id.button3);
@@ -36,6 +37,7 @@ public class Ocarina12HoleFragment extends Fragment {
 
 
         TouchListener12 touchListener = new TouchListener12();
+        volLock.setOnTouchListener(touchListener);
         b1.setOnTouchListener(touchListener);
         b2.setOnTouchListener(touchListener);
         b3.setOnTouchListener(touchListener);
