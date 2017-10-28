@@ -18,6 +18,9 @@ import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    protected static OcarinaTouchListener touchListener;
+    protected static String currentOcarina;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         setFragment(new Ocarina12HoleFragment());
+        currentOcarina = "12Hole";
 
         ToggleButton volLock = (ToggleButton) findViewById(R.id.vol_lock);
         ImageButton b1 = (ImageButton) findViewById(R.id.button1);
@@ -49,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ImageButton b12 = (ImageButton) findViewById(R.id.button12);
 
 
-        TouchListener12 touchListener = new TouchListener12();
+        touchListener = new OcarinaTouchListener();
         volLock.setOnTouchListener(touchListener);
         b1.setOnTouchListener(touchListener);
         b2.setOnTouchListener(touchListener);
@@ -72,12 +76,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (keyCode) {
             case KeyEvent.KEYCODE_VOLUME_UP:
                 if (action == KeyEvent.ACTION_DOWN) {
-                    //TODO
+                    touchListener.setButtons(9, true);
+                } else if (action == KeyEvent.ACTION_UP) {
+                    touchListener.setButtons(9, false);
                 }
                 return true;
             case KeyEvent.KEYCODE_VOLUME_DOWN:
                 if (action == KeyEvent.ACTION_DOWN) {
-                    //TODO
+                    touchListener.setButtons(10, true);
+                } else if (action == KeyEvent.ACTION_UP) {
+                    touchListener.setButtons(10, false);
                 }
                 return true;
             default:
@@ -102,8 +110,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_item_ocarina_12_hole) {
             setFragment(new Ocarina12HoleFragment());
+            currentOcarina = "12Hole";
         } else if (id == R.id.nav_item_ocarina_4_hole) {
             setFragment(new Ocarina4HoleFragment());
+            currentOcarina = "4Hole";
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
