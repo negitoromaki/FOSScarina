@@ -69,11 +69,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //Buttons 9 and 10 are volume buttons
         b11.setOnTouchListener(touchListener);
         b12.setOnTouchListener(touchListener);
-<<<<<<< HEAD
-
-=======
->>>>>>> 53cc9d27c83f1fa0c3b1d6c81fb86ef2c2432c87
     }
+
 
     @Override
      public boolean dispatchKeyEvent(KeyEvent event) {
@@ -121,6 +118,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_item_ocarina_4_hole) {
             setFragment(new Ocarina4HoleFragment());
             currentOcarina = "4Hole";
+
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
