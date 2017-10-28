@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 /**
  * logic from https://stackoverflow.com/questions/2413426/playing-an-arbitrary-tone-with-android
+ * make an enum for tones?
+ *
  */
 
 public class SoundGenerator extends AppCompatActivity {
@@ -21,9 +23,35 @@ public class SoundGenerator extends AppCompatActivity {
 
     Handler h = new Handler();
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+               spawn();
+               h.post(new Runnable() {
+                   @Override
+                   public void run() {
+                       play();
+                   }
+               });
+            }
+        });
+        t.start();
+    }
+
+    void spawn(){
+        for(int i=0; i < samples; i++){
+            sampleSet[i] = Math.sin(2*Math.PI * i / (rate/freq));
+        }
+
     }
 
 }
