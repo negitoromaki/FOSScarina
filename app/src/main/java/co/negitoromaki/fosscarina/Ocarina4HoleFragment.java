@@ -9,6 +9,9 @@ import android.view.MotionEvent;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
 
+import in.excogitation.zentone.library.ToneStoppedListener;
+import in.excogitation.zentone.library.ZenTone;
+
 /**
  * Created by csculley on 10/28/17.
  */
@@ -21,6 +24,19 @@ public class Ocarina4HoleFragment extends Fragment {
             container.removeAllViews();
         }
         return inflater.inflate(R.layout.ocarina_4_hole, container, false);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+            ZenTone.getInstance().generate(440, 1, 1);
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        ZenTone.getInstance().stop();
     }
 
 }
