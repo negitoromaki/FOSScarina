@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FOSScarina</string>
+    <string name="ocarina_title_12">Current Ocarina: 12-hole</string>
 </resources>
