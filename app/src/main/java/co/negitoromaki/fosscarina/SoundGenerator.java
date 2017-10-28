@@ -12,6 +12,8 @@ import java.util.ArrayList;
  *
  */
 
+/*
+
 public class SoundGenerator extends AppCompatActivity {
 
     private int toneTime = 1; // make it onHold();
@@ -55,3 +57,5 @@ public class SoundGenerator extends AppCompatActivity {
     }
 
 }
+
+*/
