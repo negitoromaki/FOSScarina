@@ -18,7 +18,7 @@ import android.widget.CompoundButton;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     protected static OcarinaTouchListener touchListener;
-    protected static boolean volumeLockEnabled = false;
+    protected static boolean volumeLockEnabled;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         ToggleButton volLock = (ToggleButton) findViewById(R.id.volLock);
         volLock.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     volumeLockEnabled = true;
