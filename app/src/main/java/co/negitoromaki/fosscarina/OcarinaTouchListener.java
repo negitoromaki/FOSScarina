@@ -33,20 +33,12 @@ public class OcarinaTouchListener implements View.OnTouchListener {
         } else if (event.equals(MotionEvent.ACTION_UP)) {
             buttons[v.getId()] = false;
         }
-
-        if (!OcarinaTouchListener.getButtons().equals(savedState)) {
-            savedState = OcarinaTouchListener.getButtons();
-            ZenTone.getInstance().stop();
-
-            AudioTrack at = new AudioTrack(AudioManager.STREAM_MUSIC,rate, AudioFormat.CHANNEL_OUT_MONO,AudioFormat.ENCODING_PCM_16BIT, sound.length, AudioTrack.MODE_STATIC);
-            ZenTone.getInstance().generate((int) OcarinaTouchListener.getNote(currentOcarina).freq(), 10, 1, new ToneStoppedListener() {
-                @Override
-                public void onToneStopped() {
-                }
-            });
-            return true;
-        }
-        return false;
+        ZenTone.getInstance().generate((int) OcarinaTouchListener.getNote(currentOcarina).freq(), 10, 1, new ToneStoppedListener() {
+            @Override
+            public void onToneStopped() {
+            }
+        });
+        return true;
     }
 
 
