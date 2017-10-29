@@ -4,6 +4,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ToggleButton;
 
+import in.excogitation.zentone.library.ToneStoppedListener;
+import in.excogitation.zentone.library.ZenTone;
+
 /**
  * Created by csculley on 10/28/17.
  */
@@ -20,6 +23,22 @@ public class OcarinaTouchListener implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                ZenTone.getInstance().generate(400, 10, 1, new ToneStoppedListener() {
+                    @Override
+                    public void onToneStopped() {
+                    }
+                });
+            }
+
+        });
+
+        t.start();
+
+
         if (event.equals(MotionEvent.ACTION_DOWN)) {
             buttons[v.getId()] = true;
         } else if (event.equals(MotionEvent.ACTION_UP)) {
