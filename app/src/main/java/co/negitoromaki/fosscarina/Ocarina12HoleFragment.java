@@ -1,5 +1,8 @@
 package co.negitoromaki.fosscarina;
 
+import android.media.AudioFormat;
+import android.media.AudioManager;
+import android.media.AudioTrack;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,8 +29,6 @@ public class Ocarina12HoleFragment extends Fragment {
 
         return inflater.inflate(R.layout.ocarina_12_hole, container, false);
     }
-
-    @Override
     public void onStart() {
         super.onStart();
         ImageButton b1 = (ImageButton) getActivity().findViewById(R.id.button1);
