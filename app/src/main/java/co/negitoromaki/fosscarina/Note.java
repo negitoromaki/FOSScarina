@@ -5,8 +5,9 @@ package co.negitoromaki.fosscarina;
  */
 
 public enum Note {
-        /* in hz*/
-/*A_3 TO E_4 */
+    /* in hz*/
+    /*A_3 TO E_4 */
+
     A_3 (220),
     B_3 (246.94),
     C_3 (130.81),
@@ -32,14 +33,18 @@ public enum Note {
     F_4_SHARP (369.99),
     G_4_SHARP (415.3);
 
+    private double freq;
 
-    final double freq;
+    Note(double freq) {
+        this.freq = freq;
+    }
 
-    Note(double a){
+    public void Note(double a){
         this.freq = a;
     }
+
     public double freq(){
         return freq;
     }
-
 }
+

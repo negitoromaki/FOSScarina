@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        setFragment(new Ocarina12HoleFragment());
         currentOcarina = "12Hole";
+        setFragment(new Ocarina12HoleFragment(currentOcarina));
 
         ToggleButton volLock = (ToggleButton) findViewById(R.id.vol_lock);
         ImageButton b1 = (ImageButton) findViewById(R.id.button1);
@@ -69,8 +69,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //Buttons 9 and 10 are volume buttons
         b11.setOnTouchListener(touchListener);
         b12.setOnTouchListener(touchListener);
-        //trying this
-        touchListener.buttonEval();
     }
 
 
@@ -115,13 +113,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_item_ocarina_12_hole) {
-            setFragment(new Ocarina12HoleFragment());
             currentOcarina = "12Hole";
+            setFragment(new Ocarina12HoleFragment());
         } else if (id == R.id.nav_item_ocarina_4_hole) {
-            setFragment(new Ocarina4HoleFragment());
             currentOcarina = "4Hole";
-
-
+            setFragment(new Ocarina4HoleFragment());
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

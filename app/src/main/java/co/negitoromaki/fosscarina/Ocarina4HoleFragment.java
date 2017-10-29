@@ -29,12 +29,24 @@ public class Ocarina4HoleFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        while (true) {
+            ZenTone.getInstance().generate(1144, 1, 1, new ToneStoppedListener() {
+                @Override
+                public void onToneStopped() {
+                }
+            });
         }
-
+    }
 
     @Override
     public void onStop() {
         super.onStop();
+        ZenTone.getInstance().stop();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
         ZenTone.getInstance().stop();
     }
 

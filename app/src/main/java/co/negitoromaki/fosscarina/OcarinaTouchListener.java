@@ -26,28 +26,19 @@ public class OcarinaTouchListener implements View.OnTouchListener {
     }
 
 
-    public static boolean[] getButtons() { return buttons; }
+    public static boolean[] getButtons() {
+        return buttons;
+    }
 
     public void setButtons(int number, boolean b) {
         buttons[number - 1] = b;
     }
 
-    public static void buttonEval(){
-        //test
-        buttons[0] = true;
+    public Note getNote(String currentOcarina) {
 
- /* for (boolean e :buttons) {
-            // change to different tones
-            if(e){
- */               ZenTone.getInstance().generate(440, 1, 1, new ToneStoppedListener() {
-                    @Override
-                    public void onToneStopped() {
-
-                    }
-
-                });
-                ZenTone.getInstance().stop();
-            }
-
-
+        if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, true, true})) {
+            return Note.A_3;
         }
+        
+    }
+}

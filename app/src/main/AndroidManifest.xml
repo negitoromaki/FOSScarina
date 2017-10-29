@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/fs"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:screenOrientation="portrait">
+        android:screenOrientation="portrait"
+        android:resizeableActivity="true">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
