@@ -22,7 +22,6 @@ import in.excogitation.zentone.library.ZenTone;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     protected static OcarinaTouchListener touchListener;
-    protected static String currentOcarina;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +38,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        currentOcarina = "12Hole";
-        setFragment(new Ocarina12HoleFragment(currentOcarina));
+        setFragment(new Ocarina12HoleFragment());
 
         ToggleButton volLock = (ToggleButton) findViewById(R.id.vol_lock);
         ImageButton b1 = (ImageButton) findViewById(R.id.button1);
@@ -113,10 +111,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_item_ocarina_12_hole) {
-            currentOcarina = "12Hole";
             setFragment(new Ocarina12HoleFragment());
         } else if (id == R.id.nav_item_ocarina_4_hole) {
-            currentOcarina = "4Hole";
             setFragment(new Ocarina4HoleFragment());
         }
 

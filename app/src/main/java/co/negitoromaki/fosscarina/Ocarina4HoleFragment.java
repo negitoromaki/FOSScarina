@@ -30,7 +30,7 @@ public class Ocarina4HoleFragment extends Fragment {
     public void onResume() {
         super.onResume();
         while (true) {
-            ZenTone.getInstance().generate(1144, 1, 1, new ToneStoppedListener() {
+            ZenTone.getInstance().generate(OcarinaTouchListener.getNote("4Hole").freq(), 0.1, 1, new ToneStoppedListener() {
                 @Override
                 public void onToneStopped() {
                 }

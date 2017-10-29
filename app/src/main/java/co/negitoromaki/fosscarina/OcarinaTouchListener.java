@@ -34,11 +34,14 @@ public class OcarinaTouchListener implements View.OnTouchListener {
         buttons[number - 1] = b;
     }
 
-    public Note getNote(String currentOcarina) {
+    static public Note getNote(String currentOcarina) {
+    if (currentOcarina.equals("4Hole")) {
+
+    } else if (currentOcarina.equals("12Hole")) {
 
         if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, true, true})) {
             return Note.A_3;
         }
-        
+
     }
 }
