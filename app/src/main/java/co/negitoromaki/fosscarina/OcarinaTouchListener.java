@@ -43,8 +43,48 @@ public class OcarinaTouchListener implements View.OnTouchListener {
     static public Note getNote(String currentOcarina) {
         if (currentOcarina.equals("4Hole")) {
 
-            if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, true, true})) { //all
-                return Note.A_3;
+            if (buttons.equals(new boolean[] {true, true, true, true, false, false, false, false, false, false, false, false})) { //all
+                return Note.C_3;
+            }
+
+            if (buttons.equals(new boolean[] {false, true, true, true, false, false, false, false, false, false, false, false})) { //all
+                return Note.D_3;
+            }
+
+            if (buttons.equals(new boolean[] {true, false, true, true, false, false, false, false, false, false, false, false})) { //all
+                return Note.E_3;
+            }
+
+            if (buttons.equals(new boolean[] {false, false, true, true, false, false, false, false, false, false, false, false})) { //all
+                return Note.F_3;
+            }
+
+            if (buttons.equals(new boolean[] {true, true, false, true, false, false, false, false, false, false, false, false})) { //all
+                return Note.F_3_SHARP;
+            }
+
+            if (buttons.equals(new boolean[] {false, true, false, true, false, false, false, false, false, false, false, false})) { //all
+                return Note.G_3;
+            }
+
+            if (buttons.equals(new boolean[] {true, false, false, true, false, false, false, false, false, false, false, false})) { //all
+                return Note.G_3_SHARP;
+            }
+
+            if (buttons.equals(new boolean[] {false, false, false, true, false, false, false, false, false, false, false, false})) { //all
+                return Note.A_4;
+            }
+
+            if (buttons.equals(new boolean[] {false, true, false, false, false, false, false, false, false, false, false, false})) { //all
+                return Note.A_4_SHARP;
+            }
+
+            if (buttons.equals(new boolean[] {true, false, false, false, false, false, false, false, false, false, false, false})) { //all
+                return Note.B_4;
+            }
+
+            if (buttons.equals(new boolean[] {false, false, false, false, false, false, false, false, false, false, false, false})) { //all
+                return Note.NULL;
             }
 
         } else if (currentOcarina.equals("12Hole")) {
