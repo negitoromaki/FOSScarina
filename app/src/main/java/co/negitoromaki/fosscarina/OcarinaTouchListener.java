@@ -84,13 +84,13 @@ public class OcarinaTouchListener implements View.OnTouchListener {
             }
 
             if (buttons.equals(new boolean[] {false, false, false, false, false, false, false, false, false, false, false, false})) { //all
-                return Note.NULL;
+                return Note.NULL; //Should be C_4, but we don't have any control for baseline right now.
             }
 
         } else if (currentOcarina.equals("12Hole")) {
 
 
-            if (buttons.equals(new boolean[]{true, true, true, true, true, true, true, true, true, true, true, true})) {
+            if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, true, true})) {
                 return Note.A_3;
             }
             if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, false, true})) { // no 11
@@ -135,28 +135,28 @@ public class OcarinaTouchListener implements View.OnTouchListener {
             }
 
             if (buttons.equals(new boolean[] {false, false, false, false, false, false, false, false, false, false, false, false})) {
+                return Note.NULL; //Should be F_3, but we don't have any control from baseline rn
+            }
+
+            if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, true, false})) {
+                return ;
+            }
+            if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, false, true, true, false, true})) {
                 return ;
             }
 
-            if (buttons.equals(new boolean[]{true, true, true, true, true, true, true, true, true, true, true, false})) {
+            if (buttons.equals(new boolean[] {true, true, true, true, true, true, false, false, true, true, false, true})) {
                 return ;
             }
-            if (buttons.equals(new boolean[]{true, true, true, true, true, true, true, false, true, true, false, true})) {
-                return ;
-            }
-
-            if (buttons.equals(new boolean[]{true, true, true, true, true, true, false, false, true, true, false, true})) {
-                return ;
-            }
-            if (buttons.equals(new boolean[]{true, true, true, true, false, false, true, false, true, true, false, false})) {
+            if (buttons.equals(new boolean[] {true, true, true, true, false, false, true, false, true, true, false, false})) {
                 return ;
             }
 
-            if (buttons.equals(new boolean[]{true, true, false, true, false, false, true, false, true, true, false, false})) {
+            if (buttons.equals(new boolean[] {true, true, false, true, false, false, true, false, true, true, false, false})) {
                 return ;
             }
 
-            if (buttons.equals(new boolean[]{true, false, false, true, false, false, true, false, true, true, false, false})) {
+            if (buttons.equals(new boolean[] {true, false, false, true, false, false, true, false, true, true, false, false})) {
                 return ;
             }
             if (buttons.equals(new boolean[] {false, false, false, true, false, false, true, false, true, true, false, false})) {
