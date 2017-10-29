@@ -14,14 +14,11 @@ import android.widget.ImageButton;
 import android.widget.ToggleButton;
 import android.widget.CompoundButton;
 
-import in.excogitation.zentone.library.ToneStoppedListener;
-import in.excogitation.zentone.library.ZenTone;
-
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     protected static OcarinaTouchListener touchListener;
-    private static boolean volumeLockEnabled = false;
+    protected static boolean volumeLockEnabled = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
         setFragment(new Ocarina12HoleFragment());
 
         ToggleButton volLock = (ToggleButton) findViewById(R.id.vol_lock);
@@ -64,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             }
         });
+
         b1.setOnTouchListener(touchListener);
         b2.setOnTouchListener(touchListener);
         b3.setOnTouchListener(touchListener);
@@ -76,7 +75,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         b11.setOnTouchListener(touchListener);
         b12.setOnTouchListener(touchListener);
     }
-
 
     @Override
      public boolean dispatchKeyEvent(KeyEvent event) {
@@ -102,7 +100,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -113,7 +110,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();

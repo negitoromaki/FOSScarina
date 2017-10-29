@@ -40,10 +40,6 @@ public enum Note {
         this.freq = freq;
     }
 
-    public void Note(double a){
-        this.freq = a;
-    }
-
     public double freq(){
         return freq;
     }
