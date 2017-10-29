@@ -35,9 +35,11 @@ public class OcarinaTouchListener implements View.OnTouchListener {
         } else if (event.getAction() == MotionEvent.ACTION_UP) {
             setButtons(button, false);
         }
+
         Internal i = new Internal();
-        i.getFreq(1000.0);
-        i.start();
+        i.getFreq(getNote().freq());
+        i.genTone();
+        i.playSound();
         return true;
     }
 
@@ -79,7 +81,7 @@ public class OcarinaTouchListener implements View.OnTouchListener {
         }
     }
 
-    static public Note getNote(String currentOcarina) {
+    static public Note getNote() {
         if (currentOcarina.equals("4Hole")) {
 
             if (buttons.equals(new boolean[] {true, true, true, true, false, false, false, false, false, false, false, false})) {

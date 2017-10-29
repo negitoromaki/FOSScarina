@@ -5,96 +5,77 @@ import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioTrack;
 import android.os.Bundle;
-import android.view.View;
+import android.os.Handler;
 
-import java.util.Random;
-
-/**
- * Created by patrick on 10/29/17.
- * https://stackoverflow.com/questions/6179392/audiotrack-in-streaming-mode-mode-streaming
- */
 
 public class Internal extends Activity {
-    double freq;
+    static double freq;
+
     public void getFreq(double freq){
         this.freq = freq;
     }
+    // originally from http://marblemice.blogspot.com/2010/04/generate-and-play-tone-in-android.html
+    // and modified by Steve Pomeroy <steve@staticfree.info>
+    private final int duration = 3; // seconds
+    private final int sampleRate = 8000;
+    private final int numSamples = duration * sampleRate;
+    private final double sample[] = new double[numSamples];
+    private final double freqOfTone = this.freq; // hz
+
+    private final byte generatedSnd[] = new byte[2 * numSamples];
+
+    Handler handler = new Handler();
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-    public void onPlayClicked(View v)
-    {
-        start();
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Use a new tread as this can take a while
+        final Thread thread = new Thread(new Runnable() {
+            public void run() {
+                genTone();
+                handler.post(new Runnable() {
+
+                    public void run() {
+                        playSound();
+                    }
+                });
+            }
+        });
+        thread.start();
     }
 
-    public void onStopClicked(View v)
-    {
-        stop();
-    }
-
-    boolean m_stop = false;
-    AudioTrack m_audioTrack;
-    Thread m_noiseThread;
-
-    Runnable m_noiseGenerator = new Runnable()
-    {
-        public void run()
-        {
-            Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
-
-            // originally from http://marblemice.blogspot.com/2010/04/generate-and-play-tone-in-android.html
-            // and modified by Steve Pomeroy <steve@staticfree.info>
-             final int duration = 3; // seconds
-             final int sampleRate = 8000;
-             final int numSamples = duration * sampleRate;
-             final double sample[] = new double[numSamples];
-             final double freqOfTone = freq; // hz
-            final byte generatedSnd[] = new byte[2 * numSamples];
-            for (int i = 0; i < numSamples; ++i) {
-                sample[i] = Math.sin(2 * Math.PI * i / (sampleRate/freqOfTone));
-            }
-
-            // convert to 16 bit pcm sound array
-            // assumes the sample buffer is normalised.
-            int idx = 0;
-            for (final double dVal : sample) {
-                // scale to maximum amplitude
-                final short val = (short) ((dVal * 32767));
-                // in 16 bit wav PCM, first byte is the low order byte
-                generatedSnd[idx++] = (byte) (val & 0x00ff);
-                generatedSnd[idx++] = (byte) ((val & 0xff00) >>> 8);
-            }
-
-            while(!m_stop)
-            {
-                m_audioTrack.write(generatedSnd, 0, generatedSnd.length);
-            }
+    void genTone(){
+        // fill out the array
+        for (int i = 0; i < numSamples; ++i) {
+            sample[i] = Math.sin(2 * Math.PI * i / (sampleRate/freqOfTone));
         }
-    };
 
-    void start()
-    {
-        m_stop = false;
+        // convert to 16 bit pcm sound array
+        // assumes the sample buffer is normalised.
+        int idx = 0;
+        for (final double dVal : sample) {
+            // scale to maximum amplitude
+            final short val = (short) ((dVal * 32767));
+            // in 16 bit wav PCM, first byte is the low order byte
+            generatedSnd[idx++] = (byte) (val & 0x00ff);
+            generatedSnd[idx++] = (byte) ((val & 0xff00) >>> 8);
 
-        /* 8000 bytes per second*/
-        m_audioTrack = new AudioTrack(AudioManager.STREAM_MUSIC, 8000, AudioFormat.CHANNEL_OUT_MONO,
-                AudioFormat.ENCODING_PCM_8BIT, 8000 /* 1 second buffer */,
-                AudioTrack.MODE_STREAM);
-
-        m_audioTrack.play();
-
-
-        m_noiseThread = new Thread(m_noiseGenerator);
-        m_noiseThread.start();
+        }
     }
 
-    void stop()
-    {
-        m_stop = true;
-        m_audioTrack.stop();
+    void playSound(){
+        final AudioTrack audioTrack = new AudioTrack(AudioManager.STREAM_MUSIC,
+                sampleRate, AudioFormat.CHANNEL_OUT_MONO,
+                AudioFormat.ENCODING_PCM_16BIT, generatedSnd.length,
+                AudioTrack.MODE_STATIC);
+        audioTrack.write(generatedSnd, 0, generatedSnd.length);
+        audioTrack.play();
     }
 }
