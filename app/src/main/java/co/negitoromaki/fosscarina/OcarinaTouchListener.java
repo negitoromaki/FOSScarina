@@ -1,5 +1,8 @@
 package co.negitoromaki.fosscarina;
 
+import android.media.AudioTrack;
+import android.media.AudioFormat;
+import android.media.AudioManager;
 import android.view.MotionEvent;
 import android.view.View;
 import in.excogitation.zentone.library.ToneStoppedListener;
@@ -34,6 +37,8 @@ public class OcarinaTouchListener implements View.OnTouchListener {
         if (!OcarinaTouchListener.getButtons().equals(savedState)) {
             savedState = OcarinaTouchListener.getButtons();
             ZenTone.getInstance().stop();
+
+            AudioTrack at = new AudioTrack(AudioManager.STREAM_MUSIC,rate, AudioFormat.CHANNEL_OUT_MONO,AudioFormat.ENCODING_PCM_16BIT, sound.length, AudioTrack.MODE_STATIC);
             ZenTone.getInstance().generate((int) OcarinaTouchListener.getNote(currentOcarina).freq(), 10, 1, new ToneStoppedListener() {
                 @Override
                 public void onToneStopped() {
