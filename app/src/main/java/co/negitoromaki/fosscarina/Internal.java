@@ -6,76 +6,63 @@ import android.media.AudioManager;
 import android.media.AudioTrack;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Menu;
+import android.widget.SeekBar;
 
 // https://stackoverflow.com/questions/2413426/playing-an-arbitrary-tone-with-android
-public class Internal extends Activity {
-    static double freq;
+public class Internal {
 
-    public void getFreq(double freq){
-        this.freq = freq;
-    }
-    // originally from http://marblemice.blogspot.com/2010/04/generate-and-play-tone-in-android.html
-    // and modified by Steve Pomeroy <steve@staticfree.info>
-    private final int duration = 3; // seconds
-    private final int sampleRate = 8000;
-    private final int numSamples = duration * sampleRate;
-    private final double sample[] = new double[numSamples];
-    private final double freqOfTone = this.freq; // hz
+    Thread t;
+    int sr = 44100;
+    boolean isRunning = true;
 
-    private final byte generatedSnd[] = new byte[2 * numSamples];
+    public void start() {
 
-    Handler handler = new Handler();
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        // Use a new tread as this can take a while
-        final Thread thread = new Thread(new Runnable() {
+        // start a new thread to synthesise audio
+        t = new Thread() {
             public void run() {
-                genTone();
-                handler.post(new Runnable() {
+                // set process priority
+                setPriority(Thread.MAX_PRIORITY);
+                // set the buffer size
+                int buffsize = AudioTrack.getMinBufferSize(sr,
+                        AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT);
+                // create an audiotrack object
+                AudioTrack audioTrack = new AudioTrack(AudioManager.STREAM_MUSIC,
+                        sr, AudioFormat.CHANNEL_OUT_MONO,
+                        AudioFormat.ENCODING_PCM_16BIT, buffsize,
+                        AudioTrack.MODE_STREAM);
 
-                    public void run() {
-                        playSound();
+                short samples[] = new short[buffsize];
+                int amp = 10000;
+                double twopi = 8.*Math.atan(1.);
+                double ph = 0.0;
+
+                // start audio
+                audioTrack.play();
+
+                // synthesis loop
+                while(isRunning){
+                    double fr =  OcarinaTouchListener.getNote().freq();
+                    for(int i=0; i < buffsize; i++){
+                        samples[i] = (short) (amp*Math.sin(ph));
+                        ph += twopi*fr/sr;
                     }
-                });
+                    audioTrack.write(samples, 0, buffsize);
+                }
+                audioTrack.stop();
+                audioTrack.release();
             }
-        });
-        thread.start();
+        };
+        t.start();
     }
 
-    void genTone(){
-        // fill out the array
-        for (int i = 0; i < numSamples; ++i) {
-            sample[i] = Math.sin(2 * Math.PI * i / (sampleRate/freqOfTone));
+    public void stop(){
+        isRunning = false;
+        try {
+            t.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-
-        // convert to 16 bit pcm sound array
-        // assumes the sample buffer is normalised.
-        int idx = 0;
-        for (final double dVal : sample) {
-            // scale to maximum amplitude
-            final short val = (short) ((dVal * 32767));
-            // in 16 bit wav PCM, first byte is the low order byte
-            generatedSnd[idx++] = (byte) (val & 0x00ff);
-            generatedSnd[idx++] = (byte) ((val & 0xff00) >>> 8);
-
-        }
-    }
-
-    void playSound(){
-        final AudioTrack audioTrack = new AudioTrack(AudioManager.STREAM_MUSIC,
-                sampleRate, AudioFormat.CHANNEL_OUT_MONO,
-                AudioFormat.ENCODING_PCM_16BIT, generatedSnd.length,
-                AudioTrack.MODE_STATIC);
-        audioTrack.write(generatedSnd, 0, generatedSnd.length);
-        audioTrack.play();
+        t = null;
     }
 }

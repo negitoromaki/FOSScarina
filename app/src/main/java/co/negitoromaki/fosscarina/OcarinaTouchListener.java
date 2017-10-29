@@ -37,9 +37,7 @@ public class OcarinaTouchListener implements View.OnTouchListener {
         }
 
         Internal i = new Internal();
-        i.getFreq(getNote().freq());
-        i.genTone();
-        i.playSound();
+        i.start();
         return true;
     }
 
