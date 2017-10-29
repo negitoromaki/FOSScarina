@@ -3,9 +3,6 @@ package co.negitoromaki.fosscarina;
 import android.view.MotionEvent;
 import android.view.View;
 
-import in.excogitation.zentone.library.ToneStoppedListener;
-import in.excogitation.zentone.library.ZenTone;
-
 /**
  * Created by csculley on 10/28/17.
  */
@@ -167,8 +164,7 @@ public class OcarinaTouchListener implements View.OnTouchListener {
                 return Note.D_4_SHARP;
             }
 
-        } else {
-            return Note.NULL;
         }
+        return Note.NULL;
     }
 }
