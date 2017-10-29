@@ -80,24 +80,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      public boolean dispatchKeyEvent(KeyEvent event) {
         int action = event.getAction();
         int keyCode = event.getKeyCode();
-        switch (keyCode) {
-            case KeyEvent.KEYCODE_VOLUME_UP:
-                if (action == KeyEvent.ACTION_DOWN) {
-                    touchListener.setButtons(9, true);
-                } else if (action == KeyEvent.ACTION_UP) {
-                    touchListener.setButtons(9, false);
-                }
-                return true;
-            case KeyEvent.KEYCODE_VOLUME_DOWN:
-                if (action == KeyEvent.ACTION_DOWN) {
-                    touchListener.setButtons(10, true);
-                } else if (action == KeyEvent.ACTION_UP) {
-                    touchListener.setButtons(10, false);
-                }
-                return true;
-            default:
-                return super.dispatchKeyEvent(event);
+        if (volumeLockEnabled) {
+            switch (keyCode) {
+                case KeyEvent.KEYCODE_VOLUME_UP:
+                    if (action == KeyEvent.ACTION_DOWN) {
+                        touchListener.setButtons(9, true);
+                    } else if (action == KeyEvent.ACTION_UP) {
+                        touchListener.setButtons(9, false);
+                    }
+                    return true;
+                case KeyEvent.KEYCODE_VOLUME_DOWN:
+                    if (action == KeyEvent.ACTION_DOWN) {
+                        touchListener.setButtons(10, true);
+                    } else if (action == KeyEvent.ACTION_UP) {
+                        touchListener.setButtons(10, false);
+                    }
+                    return true;
+                default:
+                    return super.dispatchKeyEvent(event);
+            }
         }
+        return false;
     }
 
     @Override
@@ -129,10 +132,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         android.support.v4.app.FragmentTransaction t = getSupportFragmentManager().beginTransaction();
         t.replace(R.id.content_frame, fragment);
         t.commit();
-    }
-
-    static public boolean getVolumeLock() {
-        return volumeLockEnabled;
     }
 
 }

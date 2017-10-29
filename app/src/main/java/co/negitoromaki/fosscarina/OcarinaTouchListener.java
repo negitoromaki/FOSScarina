@@ -20,15 +20,12 @@ public class OcarinaTouchListener implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        if (MainActivity.getVolumeLock()) {
-            if (event.equals(MotionEvent.ACTION_DOWN)) {
-                buttons[v.getId()] = true;
-            } else if (event.equals(MotionEvent.ACTION_UP)) {
-                buttons[v.getId()] = false;
-            }
-            return true;
+        if (event.equals(MotionEvent.ACTION_DOWN)) {
+            buttons[v.getId()] = true;
+        } else if (event.equals(MotionEvent.ACTION_UP)) {
+            buttons[v.getId()] = false;
         }
-        return false;
+        return true;
     }
 
 
