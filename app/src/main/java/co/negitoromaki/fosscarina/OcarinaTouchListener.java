@@ -35,13 +35,6 @@ public class OcarinaTouchListener implements View.OnTouchListener {
             setButtons(button, false);
         }
 
-        ZenTone.getInstance().stop();
-        ZenTone.getInstance().generate((int) getNote(currentOcarina).freq(), 10, 1, new ToneStoppedListener() {
-            @Override
-            public void onToneStopped() {
-
-            }
-        });
         return true;
     }
 
@@ -219,4 +212,5 @@ public class OcarinaTouchListener implements View.OnTouchListener {
         }
         return Note.NULL;
     }
+
 }
