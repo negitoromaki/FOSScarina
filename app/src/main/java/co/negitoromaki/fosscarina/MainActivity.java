@@ -38,44 +38,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         setFragment(new Ocarina12HoleFragment());
-
-        ImageButton b1 = (ImageButton) findViewById(R.id.button1);
-        ImageButton b2 = (ImageButton) findViewById(R.id.button2);
-        ImageButton b3 = (ImageButton) findViewById(R.id.button3);
-        ImageButton b4 = (ImageButton) findViewById(R.id.button4);
-        ImageButton b5 = (ImageButton) findViewById(R.id.button5);
-        ImageButton b6 = (ImageButton) findViewById(R.id.button6);
-        ImageButton b7 = (ImageButton) findViewById(R.id.button7);
-        ImageButton b8 = (ImageButton) findViewById(R.id.button8);
-        //Buttons 9 and 10 are volume buttons
-        ImageButton b11 = (ImageButton) findViewById(R.id.button11);
-        ImageButton b12 = (ImageButton) findViewById(R.id.button12);
-
-        ToggleButton volLock = (ToggleButton) findViewById(R.id.volLock);
-
-        volLock.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    MainActivity.setVolumeLock(true);
-                } else {
-                    MainActivity.setVolumeLock(false);
-                }
-            }
-        });
-
         touchListener = new OcarinaTouchListener("12Hole");
-        b1.setOnTouchListener(touchListener);
-        b2.setOnTouchListener(touchListener);
-        b3.setOnTouchListener(touchListener);
-        b4.setOnTouchListener(touchListener);
-        b5.setOnTouchListener(touchListener);
-        b6.setOnTouchListener(touchListener);
-        b7.setOnTouchListener(touchListener);
-        b8.setOnTouchListener(touchListener);
-        //Buttons 9 and 10 are volume buttons
-        b11.setOnTouchListener(touchListener);
-        b12.setOnTouchListener(touchListener);
 
     }
 
@@ -146,6 +109,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     static public boolean getVolumeLock() {
         return volumeLockEnabled;
+    }
+
+    static OcarinaTouchListener getTouchListener() {
+        return touchListener;
     }
 
 }

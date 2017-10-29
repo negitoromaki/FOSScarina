@@ -2,8 +2,6 @@ package co.negitoromaki.fosscarina;
 
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ToggleButton;
-
 import in.excogitation.zentone.library.ToneStoppedListener;
 import in.excogitation.zentone.library.ZenTone;
 
@@ -26,7 +24,7 @@ public class OcarinaTouchListener implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        
+
         if (event.equals(MotionEvent.ACTION_DOWN)) {
             buttons[v.getId()] = true;
         } else if (event.equals(MotionEvent.ACTION_UP)) {
@@ -41,9 +39,9 @@ public class OcarinaTouchListener implements View.OnTouchListener {
                 public void onToneStopped() {
                 }
             });
+            return true;
         }
-        return true;
-
+        return false;
     }
 
 
