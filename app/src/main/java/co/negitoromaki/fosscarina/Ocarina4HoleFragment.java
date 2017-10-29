@@ -5,9 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.MotionEvent;
-import android.view.View.OnTouchListener;
-import android.widget.Button;
 
 import in.excogitation.zentone.library.ToneStoppedListener;
 import in.excogitation.zentone.library.ZenTone;
@@ -53,5 +50,4 @@ public class Ocarina4HoleFragment extends Fragment implements Runnable {
         super.onPause();
         ZenTone.getInstance().stop();
     }
-
 }
