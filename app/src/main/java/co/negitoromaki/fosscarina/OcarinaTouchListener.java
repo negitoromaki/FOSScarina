@@ -31,7 +31,7 @@ public class OcarinaTouchListener implements View.OnTouchListener {
         } else if (event.getAction() == MotionEvent.ACTION_UP) {
             setButtons(button, false);
         }
-        Internal.start();
+        PlayAudio.start();
         return true;
     }
 

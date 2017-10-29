@@ -5,7 +5,7 @@ import android.media.AudioManager;
 import android.media.AudioTrack;
 
 // https://stackoverflow.com/questions/2413426/playing-an-arbitrary-tone-with-android
-public class Internal {
+public class PlayAudio {
 
     static Thread t;
     static int sr = 44100;
