@@ -1,8 +1,5 @@
 package co.negitoromaki.fosscarina;
 
-import android.media.AudioFormat;
-import android.media.AudioManager;
-import android.media.AudioTrack;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,10 +12,6 @@ import android.view.MenuItem;
 import android.support.v4.app.Fragment;
 import android.view.MotionEvent;
 import android.os.SystemClock;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.ToggleButton;
-import android.widget.CompoundButton;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {

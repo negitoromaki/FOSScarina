@@ -1,22 +1,27 @@
 package co.negitoromaki.fosscarina;
 
-import android.app.Activity;
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioTrack;
-import android.os.Bundle;
-import android.os.Handler;
-import android.view.Menu;
-import android.widget.SeekBar;
 
 // https://stackoverflow.com/questions/2413426/playing-an-arbitrary-tone-with-android
 public class Internal {
 
-    Thread t;
-    int sr = 44100;
-    boolean isRunning = true;
+    static Thread t;
+    static int sr = 44100;
+    static boolean isRunning = false;
 
-    public void start() {
+    static public void start() {
+
+        if (isRunning) {
+            isRunning = false;
+            try {
+                t.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            t = null;
+        }
 
         // start a new thread to synthesise audio
         t = new Thread() {
@@ -36,12 +41,13 @@ public class Internal {
                 int amp = 10000;
                 double twopi = 8.*Math.atan(1.);
                 double ph = 0.0;
+                isRunning = true;
 
                 // start audio
                 audioTrack.play();
 
                 // synthesis loop
-                while(isRunning){
+                while(OcarinaTouchListener.getNote().freq() != 0.0){
                     double fr =  OcarinaTouchListener.getNote().freq();
                     for(int i=0; i < buffsize; i++){
                         samples[i] = (short) (amp*Math.sin(ph));
@@ -54,15 +60,5 @@ public class Internal {
             }
         };
         t.start();
-    }
-
-    public void stop(){
-        isRunning = false;
-        try {
-            t.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        t = null;
     }
 }
