@@ -24,21 +24,7 @@ public class OcarinaTouchListener implements View.OnTouchListener {
         currentOcarina = c;
     }
 // https://gist.github.com/slightfoot/6330866
-    private AudioTrack generateTone(double freqHz, int durationMs)
-    {
-        int count = (int)(44100.0 * 2.0 * (durationMs / 1000.0)) & ~1;
-        short[] samples = new short[count];
-        for(int i = 0; i < count; i += 2){
-            short sample = (short)(Math.sin(2 * Math.PI * i / (44100.0 / freqHz)) * 0x7FFF);
-            samples[i + 0] = sample;
-            samples[i + 1] = sample;
-        }
-        AudioTrack track = new AudioTrack(AudioManager.STREAM_MUSIC, 44100,
-                AudioFormat.CHANNEL_OUT_STEREO, AudioFormat.ENCODING_PCM_16BIT,
-                count * (Short.SIZE / 8), AudioTrack.MODE_STATIC);
-        track.write(samples, 0, count);
-        return track;
-    }
+
     @Override
     public boolean onTouch(View v, MotionEvent event) {
 
@@ -49,10 +35,10 @@ public class OcarinaTouchListener implements View.OnTouchListener {
         } else if (event.getAction() == MotionEvent.ACTION_UP) {
             setButtons(button, false);
         }
-        while (true) {
-            AudioTrack at = generateTone(getNote(currentOcarina).freq(), 100);
-            at.play();
-        }
+        Internal i = new Internal();
+        i.getFreq(1000.0);
+        i.start();
+        return true;
     }
 
     public int getButtonId(int i) {
