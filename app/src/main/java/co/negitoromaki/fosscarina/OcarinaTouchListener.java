@@ -12,7 +12,13 @@ import in.excogitation.zentone.library.ZenTone;
 
 public class OcarinaTouchListener implements View.OnTouchListener {
 
-    static boolean[] buttons = new boolean[12];
+    private static boolean[] buttons = new boolean[12];
+
+    OcarinaTouchListener() {
+        for (int i = 0; i < buttons.length; i++) {
+            buttons[i] = false;
+        }
+    }
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
@@ -37,14 +43,20 @@ public class OcarinaTouchListener implements View.OnTouchListener {
     static public Note getNote(String currentOcarina) {
         if (currentOcarina.equals("4Hole")) {
 
-        } else if (currentOcarina.equals("12Hole")) {
-            
             if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, true, true})) { //all
                 return Note.A_3;
             }
+
+        } else if (currentOcarina.equals("12Hole")) {
+
+            if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, true, true})) { //all
+                return Note.A_3;
+            }
+
             if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, false, true})) { // no 11
                 return Note.B_4;
             }
+
             if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, false, false})) {// no 11,12
                 return ;
             }
