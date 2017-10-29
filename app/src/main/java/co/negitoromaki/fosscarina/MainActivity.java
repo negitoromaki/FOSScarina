@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         setFragment(new Ocarina12HoleFragment());
 
-        ToggleButton volLock = (ToggleButton) findViewById(R.id.vol_lock);
         ImageButton b1 = (ImageButton) findViewById(R.id.button1);
         ImageButton b2 = (ImageButton) findViewById(R.id.button2);
         ImageButton b3 = (ImageButton) findViewById(R.id.button3);
@@ -51,8 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ImageButton b11 = (ImageButton) findViewById(R.id.button11);
         ImageButton b12 = (ImageButton) findViewById(R.id.button12);
 
-
-        touchListener = new OcarinaTouchListener();
+        ToggleButton volLock = (ToggleButton) findViewById(R.id.volLock);
         volLock.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -63,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        touchListener = new OcarinaTouchListener();
         b1.setOnTouchListener(touchListener);
         b2.setOnTouchListener(touchListener);
         b3.setOnTouchListener(touchListener);
@@ -78,9 +77,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
      public boolean dispatchKeyEvent(KeyEvent event) {
-        int action = event.getAction();
-        int keyCode = event.getKeyCode();
         if (volumeLockEnabled) {
+            int action = event.getAction();
+            int keyCode = event.getKeyCode();
+
             switch (keyCode) {
                 case KeyEvent.KEYCODE_VOLUME_UP:
                     if (action == KeyEvent.ACTION_DOWN) {
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     return super.dispatchKeyEvent(event);
             }
         }
-        return false;
+        return super.dispatchKeyEvent(event);
     }
 
     @Override
