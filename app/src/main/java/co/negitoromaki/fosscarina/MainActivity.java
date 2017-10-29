@@ -8,12 +8,11 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.app.Fragment;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ToggleButton;
+import android.widget.CompoundButton;
 
 import in.excogitation.zentone.library.ToneStoppedListener;
 import in.excogitation.zentone.library.ZenTone;
@@ -22,6 +21,7 @@ import in.excogitation.zentone.library.ZenTone;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     protected static OcarinaTouchListener touchListener;
+    private static boolean volumeLockEnabled = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         touchListener = new OcarinaTouchListener();
-        volLock.setOnTouchListener(touchListener);
+        volLock.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    volumeLockEnabled = true;
+                } else {
+                    volumeLockEnabled = false;
+                }
+            }
+        });
         b1.setOnTouchListener(touchListener);
         b2.setOnTouchListener(touchListener);
         b3.setOnTouchListener(touchListener);
@@ -125,6 +133,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         android.support.v4.app.FragmentTransaction t = getSupportFragmentManager().beginTransaction();
         t.replace(R.id.content_frame, fragment);
         t.commit();
+    }
+
+    static public boolean getVolumeLock() {
+        return volumeLockEnabled;
     }
 
 }

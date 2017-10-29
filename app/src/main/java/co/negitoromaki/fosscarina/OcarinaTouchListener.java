@@ -2,6 +2,7 @@ package co.negitoromaki.fosscarina;
 
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ToggleButton;
 
 /**
  * Created by csculley on 10/28/17.
@@ -19,13 +20,15 @@ public class OcarinaTouchListener implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        if (event.equals(MotionEvent.ACTION_DOWN)) {
-            buttons[v.getId()] = true;
-        } else if (event.equals(MotionEvent.ACTION_UP)) {
-            buttons[v.getId()] = false;
+        if (MainActivity.getVolumeLock()) {
+            if (event.equals(MotionEvent.ACTION_DOWN)) {
+                buttons[v.getId()] = true;
+            } else if (event.equals(MotionEvent.ACTION_UP)) {
+                buttons[v.getId()] = false;
+            }
+            return true;
         }
-
-        return true;
+        return false;
     }
 
 
@@ -89,7 +92,7 @@ public class OcarinaTouchListener implements View.OnTouchListener {
             if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, true, true})) {
                 return Note.A_3;
             }
-            
+
             if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, false, true})) { // no 11
                 return Note.B_3;
             }
