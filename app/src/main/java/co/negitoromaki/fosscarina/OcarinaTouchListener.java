@@ -43,47 +43,47 @@ public class OcarinaTouchListener implements View.OnTouchListener {
     static public Note getNote(String currentOcarina) {
         if (currentOcarina.equals("4Hole")) {
 
-            if (buttons.equals(new boolean[] {true, true, true, true, false, false, false, false, false, false, false, false})) { //all
+            if (buttons.equals(new boolean[] {true, true, true, true, false, false, false, false, false, false, false, false})) {
                 return Note.C_3;
             }
 
-            if (buttons.equals(new boolean[] {false, true, true, true, false, false, false, false, false, false, false, false})) { //all
+            if (buttons.equals(new boolean[] {false, true, true, true, false, false, false, false, false, false, false, false})) {
                 return Note.D_3;
             }
 
-            if (buttons.equals(new boolean[] {true, false, true, true, false, false, false, false, false, false, false, false})) { //all
+            if (buttons.equals(new boolean[] {true, false, true, true, false, false, false, false, false, false, false, false})) {
                 return Note.E_3;
             }
 
-            if (buttons.equals(new boolean[] {false, false, true, true, false, false, false, false, false, false, false, false})) { //all
+            if (buttons.equals(new boolean[] {false, false, true, true, false, false, false, false, false, false, false, false})) {
                 return Note.F_3;
             }
 
-            if (buttons.equals(new boolean[] {true, true, false, true, false, false, false, false, false, false, false, false})) { //all
+            if (buttons.equals(new boolean[] {true, true, false, true, false, false, false, false, false, false, false, false})) {
                 return Note.F_3_SHARP;
             }
 
-            if (buttons.equals(new boolean[] {false, true, false, true, false, false, false, false, false, false, false, false})) { //all
+            if (buttons.equals(new boolean[] {false, true, false, true, false, false, false, false, false, false, false, false})) {
                 return Note.G_3;
             }
 
-            if (buttons.equals(new boolean[] {true, false, false, true, false, false, false, false, false, false, false, false})) { //all
+            if (buttons.equals(new boolean[] {true, false, false, true, false, false, false, false, false, false, false, false})) {
                 return Note.G_3_SHARP;
             }
 
-            if (buttons.equals(new boolean[] {false, false, false, true, false, false, false, false, false, false, false, false})) { //all
+            if (buttons.equals(new boolean[] {false, false, false, true, false, false, false, false, false, false, false, false})) {
                 return Note.A_4;
             }
 
-            if (buttons.equals(new boolean[] {false, true, false, false, false, false, false, false, false, false, false, false})) { //all
+            if (buttons.equals(new boolean[] {false, true, false, false, false, false, false, false, false, false, false, false})) {
                 return Note.A_4_SHARP;
             }
 
-            if (buttons.equals(new boolean[] {true, false, false, false, false, false, false, false, false, false, false, false})) { //all
+            if (buttons.equals(new boolean[] {true, false, false, false, false, false, false, false, false, false, false, false})) {
                 return Note.B_4;
             }
 
-            if (buttons.equals(new boolean[] {false, false, false, false, false, false, false, false, false, false, false, false})) { //all
+            if (buttons.equals(new boolean[] {false, false, false, false, false, false, false, false, false, false, false, false})) {
                 return Note.NULL; //Should be C_4, but we don't have any control for baseline right now.
             }
 
