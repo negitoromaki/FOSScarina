@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         setFragment(new Ocarina12HoleFragment());
         touchListener = new OcarinaTouchListener("12Hole");
+        PlayAudio.start();
 
     }
 
@@ -50,19 +51,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 case KeyEvent.KEYCODE_VOLUME_UP:
                     if (action == KeyEvent.ACTION_DOWN) {
                         touchListener.setButtons(9, true);
-                        dispatchTouchEvent(MotionEvent.obtain((long) SystemClock.uptimeMillis(),(long) SystemClock.uptimeMillis() + 10,MotionEvent.ACTION_DOWN, 500.0f, 500.0f, 0));
+                        dispatchTouchEvent(MotionEvent.obtain((long) SystemClock.uptimeMillis(),(long) SystemClock.uptimeMillis() + 10,MotionEvent.ACTION_DOWN, 10000.0f, 0.0f, 0));
                     } else if (action == KeyEvent.ACTION_UP) {
                         touchListener.setButtons(9, false);
-                        dispatchTouchEvent(MotionEvent.obtain((long) SystemClock.uptimeMillis(),(long) SystemClock.uptimeMillis() + 10,MotionEvent.ACTION_UP, 500.0f, 500.0f, 0));
+                        dispatchTouchEvent(MotionEvent.obtain((long) SystemClock.uptimeMillis(),(long) SystemClock.uptimeMillis() + 10,MotionEvent.ACTION_UP, 10000.0f, 0.0f, 0));
                     }
                     return true;
                 case KeyEvent.KEYCODE_VOLUME_DOWN:
                     if (action == KeyEvent.ACTION_DOWN) {
                         touchListener.setButtons(10, true);
-                        dispatchTouchEvent(MotionEvent.obtain((long) SystemClock.uptimeMillis(),(long) SystemClock.uptimeMillis() + 10,MotionEvent.ACTION_DOWN, 500.0f, 500.0f, 0));
+                        dispatchTouchEvent(MotionEvent.obtain((long) SystemClock.uptimeMillis(),(long) SystemClock.uptimeMillis() + 10,MotionEvent.ACTION_DOWN, 10000.0f, 0.0f, 0));
                     } else if (action == KeyEvent.ACTION_UP) {
                         touchListener.setButtons(10, false);
-                        dispatchTouchEvent(MotionEvent.obtain((long) SystemClock.uptimeMillis(),(long) SystemClock.uptimeMillis() + 10,MotionEvent.ACTION_UP, 500.0f, 500.0f, 0));
+                        dispatchTouchEvent(MotionEvent.obtain((long) SystemClock.uptimeMillis(),(long) SystemClock.uptimeMillis() + 10,MotionEvent.ACTION_UP, 10000.0f, 0.0f, 0));
                     }
                     return true;
                 default:

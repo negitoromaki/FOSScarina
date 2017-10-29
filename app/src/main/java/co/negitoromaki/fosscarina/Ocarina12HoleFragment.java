@@ -39,7 +39,7 @@ public class Ocarina12HoleFragment extends Fragment {
         ImageButton b11 = (ImageButton) getActivity().findViewById(R.id.button11);
         ImageButton b12 = (ImageButton) getActivity().findViewById(R.id.button12);
 
-        ToggleButton volLock = (ToggleButton) getActivity().findViewById(R.id.volLock);
+        ToggleButton volLock = (ToggleButton) getActivity().findViewById(R.id.vol_lock);
 
         volLock.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

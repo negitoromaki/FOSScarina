@@ -47,7 +47,7 @@ public class PlayAudio {
                 audioTrack.play();
 
                 // synthesis loop
-                while(OcarinaTouchListener.getNote().freq() != 0.0){
+                while(isRunning){
                     double fr =  OcarinaTouchListener.getNote().freq();
                     for(int i=0; i < buffsize; i++){
                         samples[i] = (short) (amp*Math.sin(ph));
