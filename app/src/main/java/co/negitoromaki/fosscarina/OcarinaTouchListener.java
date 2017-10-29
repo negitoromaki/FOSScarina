@@ -6,6 +6,7 @@ import android.media.AudioManager;
 import android.view.MotionEvent;
 import android.view.View;
 import java.util.Arrays;
+import android.util.Log;
 
 /**
  * Created by csculley on 10/28/17.
@@ -22,6 +23,7 @@ public class OcarinaTouchListener implements View.OnTouchListener {
         }
         currentOcarina = c;
     }
+
 // https://gist.github.com/slightfoot/6330866
     private AudioTrack generateTone(double freqHz, int durationMs)
     {
@@ -38,6 +40,8 @@ public class OcarinaTouchListener implements View.OnTouchListener {
         track.write(samples, 0, count);
         return track;
     }
+
+
     @Override
     public boolean onTouch(View v, MotionEvent event) {
 
@@ -45,16 +49,24 @@ public class OcarinaTouchListener implements View.OnTouchListener {
 
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             setButtons(button, true);
+            return true;
         } else if (event.getAction() == MotionEvent.ACTION_UP) {
             setButtons(button, false);
-        }
-            AudioTrack at = null;
-            at = generateTone(getNote().freq(), 1000);
-            at.play();
-
             return true;
+        }
+        return false;
     }
 
+    public static boolean[] getButtons() {
+        return buttons;
+    }
+
+    public void setButtons(int number, boolean b) {
+        if (number != 0) {
+            buttons[number - 1] = b;
+        }
+    }
+    
     public int getButtonId(int i) {
         switch (i) {
             case R.id.button1:
@@ -82,18 +94,7 @@ public class OcarinaTouchListener implements View.OnTouchListener {
         }
     }
 
-
-    public static boolean[] getButtons() {
-        return buttons;
-    }
-
-    public void setButtons(int number, boolean b) {
-        if (number != 0) {
-            buttons[number - 1] = b;
-        }
-    }
-
-    static public Note getNote() {
+    public Note getNote() {
 
         if (currentOcarina.equals("4Hole")) {
 
