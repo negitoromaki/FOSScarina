@@ -67,10 +67,4 @@ public class Ocarina12HoleFragment extends Fragment {
         b11.setOnTouchListener(MainActivity.getTouchListener());
         b12.setOnTouchListener(MainActivity.getTouchListener());
     }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        ZenTone.getInstance().stop();
-    }
 }

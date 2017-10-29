@@ -49,9 +49,4 @@ public class Ocarina4HoleFragment extends Fragment {
         b4.setOnTouchListener(MainActivity.getTouchListener());
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        ZenTone.getInstance().stop();
-    }
 }

@@ -15,7 +15,6 @@ import in.excogitation.zentone.library.ZenTone;
 public class OcarinaTouchListener implements View.OnTouchListener {
 
     private static boolean[] buttons = new boolean[12];
-    private static boolean[] savedState;
     private static String currentOcarina;
 
     OcarinaTouchListener(String c) {
@@ -28,17 +27,49 @@ public class OcarinaTouchListener implements View.OnTouchListener {
     @Override
     public boolean onTouch(View v, MotionEvent event) {
 
-        if (event.equals(MotionEvent.ACTION_DOWN)) {
-            buttons[v.getId()] = true;
-        } else if (event.equals(MotionEvent.ACTION_UP)) {
-            buttons[v.getId()] = false;
+        int button = getButtonId(v.getId());
+
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            setButtons(button, true);
+        } else if (event.getAction() == MotionEvent.ACTION_UP) {
+            setButtons(button, false);
         }
-        ZenTone.getInstance().generate((int) OcarinaTouchListener.getNote(currentOcarina).freq(), 10, 1, new ToneStoppedListener() {
+
+        ZenTone.getInstance().stop();
+        ZenTone.getInstance().generate((int) getNote(currentOcarina).freq(), 10, 1, new ToneStoppedListener() {
             @Override
             public void onToneStopped() {
+
             }
         });
         return true;
+    }
+
+    public int getButtonId(int i) {
+        switch (i) {
+            case R.id.button1:
+                return 1;
+            case R.id.button2:
+                return 2;
+            case R.id.button3:
+                return 3;
+            case R.id.button4:
+                return 4;
+            case R.id.button5:
+                return 5;
+            case R.id.button6:
+                return 6;
+            case R.id.button7:
+                return 7;
+            case R.id.button8:
+                return 8;
+            case R.id.button11:
+                return 11;
+            case R.id.button12:
+                return 12;
+            default:
+                return 0;
+        }
     }
 
 
@@ -47,7 +78,9 @@ public class OcarinaTouchListener implements View.OnTouchListener {
     }
 
     public void setButtons(int number, boolean b) {
-        buttons[number - 1] = b;
+        if (number != 0) {
+            buttons[number - 1] = b;
+        }
     }
 
     static public Note getNote(String currentOcarina) {
