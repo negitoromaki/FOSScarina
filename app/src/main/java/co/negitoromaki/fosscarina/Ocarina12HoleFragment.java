@@ -34,22 +34,14 @@ public class Ocarina12HoleFragment extends Fragment {
 
         boolean[] savedState = OcarinaTouchListener.getButtons();
 
-        while (true) {
-            if (!OcarinaTouchListener.getButtons().equals(savedState)) {
-                savedState = OcarinaTouchListener.getButtons();
-                ZenTone.getInstance().generate((int) OcarinaTouchListener.getNote("12Hole").freq(), 10, 1, new ToneStoppedListener() {
-                    @Override
-                    public void onToneStopped() {
-                    }
-                });
-            }
+        if (!OcarinaTouchListener.getButtons().equals(savedState)) {
+            savedState = OcarinaTouchListener.getButtons();
+            ZenTone.getInstance().generate((int) OcarinaTouchListener.getNote("12Hole").freq(), 10, 1, new ToneStoppedListener() {
+                @Override
+                public void onToneStopped() {
+                }
+            });
         }
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        ZenTone.getInstance().stop();
     }
 
     @Override
