@@ -86,19 +86,22 @@ public class OcarinaTouchListener implements View.OnTouchListener {
 
         } else if (currentOcarina.equals("12Hole")) {
 
-
             if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, true, true})) {
                 return Note.A_3;
             }
+            
             if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, false, true})) { // no 11
                 return Note.B_3;
             }
+
             if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, false, false})) {// no 11,12
                 return Note.C_3 ;
             }
+
             if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, false, true, true, false, false})) {// no 11,12,8
                 return Note.D_3;
             }
+
             if (buttons.equals(new boolean[] {true, true, true, true, true, true, false, false, true, true, false, false})) {
                 return Note.E_3;
             }
@@ -138,6 +141,7 @@ public class OcarinaTouchListener implements View.OnTouchListener {
             if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, true, false})) {
                 return Note.A_3_SHARP;
             }
+
             if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, false, true, true, false, true})) {
                 return Note.C_3_SHARP;
             }
@@ -145,6 +149,7 @@ public class OcarinaTouchListener implements View.OnTouchListener {
             if (buttons.equals(new boolean[] {true, true, true, true, true, true, false, false, true, true, false, true})) {
                 return Note.D_3_SHARP;
             }
+
             if (buttons.equals(new boolean[] {true, true, true, true, false, false, true, false, true, true, false, false})) {
                 return Note.F_3_SHARP;
             }
@@ -156,6 +161,7 @@ public class OcarinaTouchListener implements View.OnTouchListener {
             if (buttons.equals(new boolean[] {true, false, false, true, false, false, true, false, true, true, false, false})) {
                 return Note.A_4_SHARP;
             }
+
             if (buttons.equals(new boolean[] {false, false, false, true, false, false, true, false, true, true, false, false})) {
                 return Note.C_4_SHARP;
             }
