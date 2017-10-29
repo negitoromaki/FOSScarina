@@ -29,12 +29,17 @@ public class Ocarina4HoleFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        boolean[] savedState = OcarinaTouchListener.getButtons();
+
         while (true) {
-            ZenTone.getInstance().generate(OcarinaTouchListener.getNote("4Hole").freq(), 0.1, 1, new ToneStoppedListener() {
-                @Override
-                public void onToneStopped() {
-                }
-            });
+            if (!OcarinaTouchListener.getButtons().equals(savedState)) {
+                savedState = OcarinaTouchListener.getButtons();
+                ZenTone.getInstance().generate((int) OcarinaTouchListener.getNote("4Hole").freq(), 10, 1, new ToneStoppedListener() {
+                    @Override
+                    public void onToneStopped() {
+                    }
+                });
+            }
         }
     }
 
