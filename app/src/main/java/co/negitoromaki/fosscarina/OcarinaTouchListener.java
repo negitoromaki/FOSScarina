@@ -81,7 +81,7 @@ public class OcarinaTouchListener implements View.OnTouchListener {
                 return 0;
         }
     }
-    
+
     public static boolean[] getButtons() {
         return buttons;
     }
