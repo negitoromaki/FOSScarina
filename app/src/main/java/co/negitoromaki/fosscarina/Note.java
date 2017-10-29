@@ -31,7 +31,8 @@ public enum Note {
     C_4_SHARP (277.18),
     D_4_SHARP (311.13),
     F_4_SHARP (369.99),
-    G_4_SHARP (415.3);
+    G_4_SHARP (415.3),
+    NULL (0.0);
 
     private double freq;
 

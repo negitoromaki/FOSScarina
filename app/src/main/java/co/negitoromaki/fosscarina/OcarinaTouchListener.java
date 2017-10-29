@@ -38,11 +38,7 @@ public class OcarinaTouchListener implements View.OnTouchListener {
         if (currentOcarina.equals("4Hole")) {
 
         } else if (currentOcarina.equals("12Hole")) {
-
-            if (buttons.equals(new boolean[]{true, true, true, true, true, true, true, true, true, true, true, true})) {
-                return Note.A_3;
-            }
-
+            
             if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, true, true})) { //all
                 return Note.A_3;
             }
@@ -98,12 +94,9 @@ public class OcarinaTouchListener implements View.OnTouchListener {
             if (buttons.equals(new boolean[] {false, false, false, true, true, false, false, false, false, false, false, false})) {
                 return ;
             }
-        }
-
-    }
 
         } else {
-            return null;
+            return Note.NULL;
         }
     }
 }
