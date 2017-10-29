@@ -7,7 +7,7 @@ import android.media.AudioTrack;
 import android.os.Bundle;
 import android.os.Handler;
 
-
+// https://stackoverflow.com/questions/2413426/playing-an-arbitrary-tone-with-android
 public class Internal extends Activity {
     static double freq;
 
