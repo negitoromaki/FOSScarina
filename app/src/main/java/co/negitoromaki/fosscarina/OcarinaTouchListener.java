@@ -5,13 +5,7 @@ import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.view.MotionEvent;
 import android.view.View;
-<<<<<<< HEAD
 import java.util.Arrays;
-import android.util.Log;
-=======
-import in.excogitation.zentone.library.ToneStoppedListener;
-import in.excogitation.zentone.library.ZenTone;
->>>>>>> 5e406854c4da63a7572dd7bcc54e9f244b288dfd
 
 /**
  * Created by csculley on 10/28/17.
@@ -30,7 +24,6 @@ public class OcarinaTouchListener implements View.OnTouchListener {
     }
 
 // https://gist.github.com/slightfoot/6330866
-<<<<<<< HEAD
     private AudioTrack generateTone(double freqHz, int durationMs)
     {
         int count = (int)(44100.0 * 2.0 * (durationMs / 1000.0)) & ~1;
@@ -47,9 +40,6 @@ public class OcarinaTouchListener implements View.OnTouchListener {
         return track;
     }
 
-=======
->>>>>>> 5e406854c4da63a7572dd7bcc54e9f244b288dfd
-
     @Override
     public boolean onTouch(View v, MotionEvent event) {
 
@@ -63,16 +53,6 @@ public class OcarinaTouchListener implements View.OnTouchListener {
             return true;
         }
         return false;
-    }
-
-    public static boolean[] getButtons() {
-        return buttons;
-    }
-
-    public void setButtons(int number, boolean b) {
-        if (number != 0) {
-            buttons[number - 1] = b;
-        }
     }
     
     public int getButtonId(int i) {
@@ -101,12 +81,7 @@ public class OcarinaTouchListener implements View.OnTouchListener {
                 return 0;
         }
     }
-
-<<<<<<< HEAD
-    public Note getNote() {
-
-=======
-
+    
     public static boolean[] getButtons() {
         return buttons;
     }
@@ -118,136 +93,135 @@ public class OcarinaTouchListener implements View.OnTouchListener {
     }
 
     static public Note getNote(String currentOcarina) {
->>>>>>> 5e406854c4da63a7572dd7bcc54e9f244b288dfd
         if (currentOcarina.equals("4Hole")) {
 
-            if (buttons.equals(new boolean[] {true, true, true, true, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {true, true, true, true, false, false, false, false, false, false, false, false})) {
                 return Note.C_3;
             }
 
-            if (buttons.equals(new boolean[] {false, true, true, true, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {false, true, true, true, false, false, false, false, false, false, false, false})) {
                 return Note.D_3;
             }
 
-            if (buttons.equals(new boolean[] {true, false, true, true, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {true, false, true, true, false, false, false, false, false, false, false, false})) {
                 return Note.E_3;
             }
 
-            if (buttons.equals(new boolean[] {false, false, true, true, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {false, false, true, true, false, false, false, false, false, false, false, false})) {
                 return Note.F_3;
             }
 
-            if (buttons.equals(new boolean[] {true, true, false, true, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {true, true, false, true, false, false, false, false, false, false, false, false})) {
                 return Note.F_3_SHARP;
             }
 
-            if (buttons.equals(new boolean[] {false, true, false, true, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {false, true, false, true, false, false, false, false, false, false, false, false})) {
                 return Note.G_3;
             }
 
-            if (buttons.equals(new boolean[] {true, false, false, true, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {true, false, false, true, false, false, false, false, false, false, false, false})) {
                 return Note.G_3_SHARP;
             }
 
-            if (buttons.equals(new boolean[] {false, false, false, true, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {false, false, false, true, false, false, false, false, false, false, false, false})) {
                 return Note.A_4;
             }
 
-            if (buttons.equals(new boolean[] {false, true, false, false, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {false, true, false, false, false, false, false, false, false, false, false, false})) {
                 return Note.A_4_SHARP;
             }
 
-            if (buttons.equals(new boolean[] {true, false, false, false, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {true, false, false, false, false, false, false, false, false, false, false, false})) {
                 return Note.B_4;
             }
 
-            if (buttons.equals(new boolean[] {false, false, false, false, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {false, false, false, false, false, false, false, false, false, false, false, false})) {
                 return Note.NULL; //Should be C_4, but we don't have any control for baseline right now.
             }
 
         } else if (currentOcarina.equals("12Hole")) {
 
-            if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, true, true})) {
+            if (Arrays.equals(buttons, new boolean[] {true, true, true, true, true, true, true, true, true, true, true, true})) {
                 return Note.A_3;
             }
 
-            if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, false, true})) { // no 11
+            if (Arrays.equals(buttons, new boolean[] {true, true, true, true, true, true, true, true, true, true, false, true})) { // no 11
                 return Note.B_3;
             }
 
-            if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, false, false})) {// no 11,12
+            if (Arrays.equals(buttons, new boolean[] {true, true, true, true, true, true, true, true, true, true, false, false})) {// no 11,12
                 return Note.C_3 ;
             }
 
-            if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, false, true, true, false, false})) {// no 11,12,8
+            if (Arrays.equals(buttons, new boolean[] {true, true, true, true, true, true, true, false, true, true, false, false})) {// no 11,12,8
                 return Note.D_3;
             }
 
-            if (buttons.equals(new boolean[] {true, true, true, true, true, true, false, false, true, true, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {true, true, true, true, true, true, false, false, true, true, false, false})) {
                 return Note.E_3;
             }
 
-            if (buttons.equals(new boolean[] {true, true, true, true, true, false, false, false, true, true, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {true, true, true, true, true, false, false, false, true, true, false, false})) {
                 return Note.F_3;
             }
 
-            if (buttons.equals(new boolean[] {true, true, true, true, false, false, false, false, true, true, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {true, true, true, true, false, false, false, false, true, true, false, false})) {
                 return Note.G_3;
             }
 
-            if (buttons.equals(new boolean[] {true, true, false, true, false, false, false, false, true, true, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {true, true, false, true, false, false, false, false, true, true, false, false})) {
                 return Note.A_4;
             }
 
-            if (buttons.equals(new boolean[] {true, false, false, true, false, false, false, false, true, true, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {true, false, false, true, false, false, false, false, true, true, false, false})) {
                 return Note.B_4;
             }
 
-            if (buttons.equals(new boolean[] {false, false, false, true, false, false, false, false, true, true, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {false, false, false, true, false, false, false, false, true, true, false, false})) {
                 return Note.C_4;
             }
 
-            if (buttons.equals(new boolean[] {false, false, false, true, false, false, false, false, false, true, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {false, false, false, true, false, false, false, false, false, true, false, false})) {
                 return Note.D_4;
             }
 
-            if (buttons.equals(new boolean[] {false, false, false, true, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {false, false, false, true, false, false, false, false, false, false, false, false})) {
                 return Note.E_4;
             }
 
-            if (buttons.equals(new boolean[] {false, false, false, false, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {false, false, false, false, false, false, false, false, false, false, false, false})) {
                 return Note.NULL; //Should be F_3, but we don't have any control from baseline rn
             }
 
-            if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, true, true, true, true, false})) {
+            if (Arrays.equals(buttons, new boolean[] {true, true, true, true, true, true, true, true, true, true, true, false})) {
                 return Note.A_3_SHARP;
             }
 
-            if (buttons.equals(new boolean[] {true, true, true, true, true, true, true, false, true, true, false, true})) {
+            if (Arrays.equals(buttons, new boolean[] {true, true, true, true, true, true, true, false, true, true, false, true})) {
                 return Note.C_3_SHARP;
             }
 
-            if (buttons.equals(new boolean[] {true, true, true, true, true, true, false, false, true, true, false, true})) {
+            if (Arrays.equals(buttons, new boolean[] {true, true, true, true, true, true, false, false, true, true, false, true})) {
                 return Note.D_3_SHARP;
             }
 
-            if (buttons.equals(new boolean[] {true, true, true, true, false, false, true, false, true, true, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {true, true, true, true, false, false, true, false, true, true, false, false})) {
                 return Note.F_3_SHARP;
             }
 
-            if (buttons.equals(new boolean[] {true, true, false, true, false, false, true, false, true, true, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {true, true, false, true, false, false, true, false, true, true, false, false})) {
                 return Note.G_3_SHARP;
             }
 
-            if (buttons.equals(new boolean[] {true, false, false, true, false, false, true, false, true, true, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {true, false, false, true, false, false, true, false, true, true, false, false})) {
                 return Note.A_4_SHARP;
             }
 
-            if (buttons.equals(new boolean[] {false, false, false, true, false, false, true, false, true, true, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {false, false, false, true, false, false, true, false, true, true, false, false})) {
                 return Note.C_4_SHARP;
             }
 
-            if (buttons.equals(new boolean[] {false, false, false, true, false, false, true, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {false, false, false, true, false, false, true, false, false, false, false, false})) {
                 return Note.D_4_SHARP;
             }
 
