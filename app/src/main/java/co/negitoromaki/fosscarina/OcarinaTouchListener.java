@@ -4,6 +4,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ToggleButton;
 
+import in.excogitation.zentone.library.ToneStoppedListener;
+import in.excogitation.zentone.library.ZenTone;
+
 /**
  * Created by csculley on 10/28/17.
  */
@@ -11,21 +14,36 @@ import android.widget.ToggleButton;
 public class OcarinaTouchListener implements View.OnTouchListener {
 
     private static boolean[] buttons = new boolean[12];
+    private static boolean[] savedState;
+    private static String currentOcarina;
 
-    OcarinaTouchListener() {
+    OcarinaTouchListener(String c) {
         for (int i = 0; i < buttons.length; i++) {
             buttons[i] = false;
         }
+        currentOcarina = c;
     }
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+
         if (event.equals(MotionEvent.ACTION_DOWN)) {
             buttons[v.getId()] = true;
         } else if (event.equals(MotionEvent.ACTION_UP)) {
             buttons[v.getId()] = false;
         }
+
+        if (!OcarinaTouchListener.getButtons().equals(savedState)) {
+            savedState = OcarinaTouchListener.getButtons();
+            ZenTone.getInstance().stop();
+            ZenTone.getInstance().generate((int) OcarinaTouchListener.getNote(currentOcarina).freq(), 10, 1, new ToneStoppedListener() {
+                @Override
+                public void onToneStopped() {
+                }
+            });
+        }
         return true;
+
     }
 
 

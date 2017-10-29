@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.support.v4.app.Fragment;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ToggleButton;
 import android.widget.CompoundButton;
@@ -51,18 +52,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ImageButton b12 = (ImageButton) findViewById(R.id.button12);
 
         ToggleButton volLock = (ToggleButton) findViewById(R.id.volLock);
+
         volLock.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    volumeLockEnabled = true;
+                    MainActivity.setVolumeLock(true);
                 } else {
-                    volumeLockEnabled = false;
+                    MainActivity.setVolumeLock(false);
                 }
             }
         });
 
-        touchListener = new OcarinaTouchListener();
+        touchListener = new OcarinaTouchListener("12Hole");
         b1.setOnTouchListener(touchListener);
         b2.setOnTouchListener(touchListener);
         b3.setOnTouchListener(touchListener);
@@ -74,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //Buttons 9 and 10 are volume buttons
         b11.setOnTouchListener(touchListener);
         b12.setOnTouchListener(touchListener);
+
     }
 
     @Override
@@ -120,8 +123,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_item_ocarina_12_hole) {
             setFragment(new Ocarina12HoleFragment());
+            touchListener = new OcarinaTouchListener("12Hole");
         } else if (id == R.id.nav_item_ocarina_4_hole) {
             setFragment(new Ocarina4HoleFragment());
+            touchListener = new OcarinaTouchListener("4Hole");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -133,6 +138,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         android.support.v4.app.FragmentTransaction t = getSupportFragmentManager().beginTransaction();
         t.replace(R.id.content_frame, fragment);
         t.commit();
+    }
+
+    static public void setVolumeLock(boolean b) {
+        volumeLockEnabled = b;
+    }
+
+    static public boolean getVolumeLock() {
+        return volumeLockEnabled;
     }
 
 }
