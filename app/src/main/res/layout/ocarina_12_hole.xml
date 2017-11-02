@@ -23,7 +23,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"/>
 
-    <ImageButton android:id="@+id/button1"
+    <co.negitoromaki.fosscarina.OcarinaButton android:id="@+id/button1"
         android:src="@drawable/selector"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -36,7 +36,7 @@
         android:padding="0dp"
         android:background="@null"/>
 
-    <ImageButton android:id="@+id/button2"
+    <co.negitoromaki.fosscarina.OcarinaButton android:id="@+id/button2"
         android:src="@drawable/selector"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -49,7 +49,7 @@
         android:padding="0dp"
         android:background="@null"/>
 
-    <ImageButton android:id="@+id/button3"
+    <co.negitoromaki.fosscarina.OcarinaButton android:id="@+id/button3"
         android:src="@drawable/selector"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -62,7 +62,7 @@
         android:padding="0dp"
         android:background="@null"/>
 
-    <ImageButton android:id="@+id/button4"
+    <co.negitoromaki.fosscarina.OcarinaButton android:id="@+id/button4"
         android:src="@drawable/selector"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -75,7 +75,7 @@
         android:padding="0dp"
         android:background="@null"/>
 
-    <ImageButton android:id="@+id/button5"
+    <co.negitoromaki.fosscarina.OcarinaButton android:id="@+id/button5"
         android:src="@drawable/selector"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -88,7 +88,7 @@
         android:padding="0dp"
         android:background="@null"/>
 
-    <ImageButton android:id="@+id/button6"
+    <co.negitoromaki.fosscarina.OcarinaButton android:id="@+id/button6"
         android:src="@drawable/selector"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -101,7 +101,7 @@
         android:padding="0dp"
         android:background="@null"/>
 
-    <ImageButton android:id="@+id/button7"
+    <co.negitoromaki.fosscarina.OcarinaButton android:id="@+id/button7"
         android:src="@drawable/selector"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -114,7 +114,7 @@
         android:padding="0dp"
         android:background="@null"/>
 
-    <ImageButton android:id="@+id/button8"
+    <co.negitoromaki.fosscarina.OcarinaButton android:id="@+id/button8"
         android:src="@drawable/selector"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -126,7 +126,7 @@
         android:padding="0dp"
         android:background="@null"/>
 
-    <ImageButton android:id="@+id/button11"
+    <co.negitoromaki.fosscarina.OcarinaButton android:id="@+id/button11"
         android:src="@drawable/selector"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -139,7 +139,7 @@
         android:padding="0dp"
         android:background="@null"/>
 
-    <ImageButton android:id="@+id/button12"
+    <co.negitoromaki.fosscarina.OcarinaButton android:id="@+id/button12"
         android:src="@drawable/selector"
         android:scaleType="fitCenter"
         android:padding="0dp"

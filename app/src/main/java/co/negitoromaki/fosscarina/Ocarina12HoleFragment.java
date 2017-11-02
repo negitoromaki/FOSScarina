@@ -6,11 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
 import android.widget.ToggleButton;
 
-import in.excogitation.zentone.library.ToneStoppedListener;
-import in.excogitation.zentone.library.ZenTone;
 
 /**
  * Created by csculley on 10/28/17.
@@ -27,17 +24,17 @@ public class Ocarina12HoleFragment extends Fragment {
     }
     public void onStart() {
         super.onStart();
-        ImageButton b1 = (ImageButton) getActivity().findViewById(R.id.button1);
-        ImageButton b2 = (ImageButton) getActivity().findViewById(R.id.button2);
-        ImageButton b3 = (ImageButton) getActivity().findViewById(R.id.button3);
-        ImageButton b4 = (ImageButton) getActivity().findViewById(R.id.button4);
-        ImageButton b5 = (ImageButton) getActivity().findViewById(R.id.button5);
-        ImageButton b6 = (ImageButton) getActivity().findViewById(R.id.button6);
-        ImageButton b7 = (ImageButton) getActivity().findViewById(R.id.button7);
-        ImageButton b8 = (ImageButton) getActivity().findViewById(R.id.button8);
+        OcarinaButton b1 = (OcarinaButton) getActivity().findViewById(R.id.button1);
+        OcarinaButton b2 = (OcarinaButton) getActivity().findViewById(R.id.button2);
+        OcarinaButton b3 = (OcarinaButton) getActivity().findViewById(R.id.button3);
+        OcarinaButton b4 = (OcarinaButton) getActivity().findViewById(R.id.button4);
+        OcarinaButton b5 = (OcarinaButton) getActivity().findViewById(R.id.button5);
+        OcarinaButton b6 = (OcarinaButton) getActivity().findViewById(R.id.button6);
+        OcarinaButton b7 = (OcarinaButton) getActivity().findViewById(R.id.button7);
+        OcarinaButton b8 = (OcarinaButton) getActivity().findViewById(R.id.button8);
         //Buttons 9 and 10 are volume buttons
-        ImageButton b11 = (ImageButton) getActivity().findViewById(R.id.button11);
-        ImageButton b12 = (ImageButton) getActivity().findViewById(R.id.button12);
+        OcarinaButton b11 = (OcarinaButton) getActivity().findViewById(R.id.button11);
+        OcarinaButton b12 = (OcarinaButton) getActivity().findViewById(R.id.button12);
 
         ToggleButton volLock = (ToggleButton) getActivity().findViewById(R.id.vol_lock);
 

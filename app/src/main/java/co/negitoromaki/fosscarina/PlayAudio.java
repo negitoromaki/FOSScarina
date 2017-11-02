@@ -48,7 +48,7 @@ public class PlayAudio {
 
                 // synthesis loop
                 while(isRunning){
-                    double fr =  OcarinaTouchListener.getNote().freq();
+                    double fr =  OcarinaButton.getNote().freq();
                     for(int i=0; i < buffsize; i++){
                         samples[i] = (short) (amp*Math.sin(ph));
                         ph += twopi*fr/sr;

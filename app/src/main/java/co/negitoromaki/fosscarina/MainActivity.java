@@ -13,10 +13,9 @@ import android.support.v4.app.Fragment;
 import android.view.MotionEvent;
 import android.os.SystemClock;
 
-
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    protected static OcarinaTouchListener touchListener;
+    protected static OcarinaButton touchListener;
     protected static boolean volumeLockEnabled;
 
     @Override
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         setFragment(new Ocarina12HoleFragment());
-        touchListener = new OcarinaTouchListener("12Hole");
+        (touchListener = new OcarinaButton(this)).numButtons(12);
         PlayAudio.start();
 
     }
@@ -89,10 +88,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_item_ocarina_12_hole) {
             setFragment(new Ocarina12HoleFragment());
-            touchListener = new OcarinaTouchListener("12Hole");
+            (touchListener = new OcarinaButton(this)).numButtons(12);
         } else if (id == R.id.nav_item_ocarina_4_hole) {
             setFragment(new Ocarina4HoleFragment());
-            touchListener = new OcarinaTouchListener("4Hole");
+            (touchListener = new OcarinaButton(this)).numButtons(4);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -114,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return volumeLockEnabled;
     }
 
-    static OcarinaTouchListener getTouchListener() {
+    static OcarinaButton getTouchListener() {
         return touchListener;
     }
 

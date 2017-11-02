@@ -21,7 +21,7 @@
         android:layout_centerVertical="true" >
     </LinearLayout>
 
-    <ImageButton android:id="@+id/button1"
+    <co.negitoromaki.fosscarina.OcarinaButton android:id="@+id/button1"
         android:src="@drawable/selector"
         android:scaleType="fitCenter"
         android:padding="0dp"
@@ -35,7 +35,7 @@
         android:layout_alignLeft="@+id/parent_center"
         android:layout_alignBottom="@+id/parent_center"/>
 
-    <ImageButton
+    <co.negitoromaki.fosscarina.OcarinaButton
         android:id="@+id/button2"
         android:src="@drawable/selector"
         android:scaleType="fitCenter"
@@ -50,7 +50,7 @@
         android:layout_alignLeft="@+id/parent_center"
         android:layout_alignTop="@+id/parent_center"/>
 
-    <ImageButton android:id="@+id/button3"
+    <co.negitoromaki.fosscarina.OcarinaButton android:id="@+id/button3"
         android:src="@drawable/selector"
         android:scaleType="fitCenter"
         android:padding="0dp"
@@ -64,7 +64,7 @@
         android:layout_alignRight="@+id/parent_center"
         android:layout_alignBottom="@+id/parent_center"/>
 
-    <ImageButton
+    <co.negitoromaki.fosscarina.OcarinaButton
         android:id="@+id/button4"
         android:src="@drawable/selector"
         android:scaleType="fitCenter"

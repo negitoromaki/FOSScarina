@@ -1,37 +1,59 @@
 package co.negitoromaki.fosscarina;
 
+import android.content.Context;
+import android.support.v7.widget.AppCompatImageButton;
+import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+
 import java.util.Arrays;
 
 /**
  * Created by csculley on 10/28/17.
  */
 
-public class OcarinaTouchListener implements View.OnTouchListener {
+public class OcarinaButton extends AppCompatImageButton implements View.OnTouchListener {
 
-    private static boolean[] buttons = new boolean[12];
-    private static String currentOcarina;
+    private static boolean[] buttons;
 
-    OcarinaTouchListener(String c) {
+    public OcarinaButton(Context context) {
+        super(context);
+    }
+
+    public OcarinaButton(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+
+    public OcarinaButton(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+    }
+
+    public void numButtons(int b) {
+        buttons = new boolean[b];
         for (int i = 0; i < buttons.length; i++) {
             buttons[i] = false;
         }
-        currentOcarina = c;
     }
+
+
 // https://gist.github.com/slightfoot/6330866
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-
         int button = getButtonId(v.getId());
-
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             setButtons(button, true);
         } else if (event.getAction() == MotionEvent.ACTION_UP) {
             setButtons(button, false);
         }
         return true;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) setPressed(true);
+        return super.onTouchEvent(event);
     }
 
     public int getButtonId(int i) {
@@ -74,52 +96,52 @@ public class OcarinaTouchListener implements View.OnTouchListener {
 
     static public Note getNote() {
 
-        if (currentOcarina.equals("4Hole")) {
-            if (Arrays.equals(buttons, new boolean[] {true, true, true, true, false, false, false, false, false, false, false, false})) {
+        if (buttons.length == 4) {
+            if (Arrays.equals(buttons, new boolean[] {true, true, true, true})) {
                 return Note.C_5;
             }
 
-            if (Arrays.equals(buttons, new boolean[] {false, true, true, true, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {false, true, true, true})) {
                 return Note.D_5;
             }
 
-            if (Arrays.equals(buttons, new boolean[] {true, false, true, true, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {true, false, true, true})) {
                 return Note.E_5;
             }
 
-            if (Arrays.equals(buttons, new boolean[] {false, false, true, true, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {false, false, true, true})) {
                 return Note.F_5;
             }
 
-            if (Arrays.equals(buttons, new boolean[] {true, true, false, true, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {true, true, false, true})) {
                 return Note.F_5_SHARP;
             }
 
-            if (Arrays.equals(buttons, new boolean[] {false, true, false, true, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {false, true, false, true})) {
                 return Note.G_5;
             }
 
-            if (Arrays.equals(buttons, new boolean[] {true, false, false, true, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {true, false, false, true})) {
                 return Note.G_5_SHARP;
             }
 
-            if (Arrays.equals(buttons, new boolean[] {false, false, false, true, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {false, false, false, true})) {
                 return Note.A_5;
             }
 
-            if (Arrays.equals(buttons, new boolean[] {false, true, false, false, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {false, true, false, false})) {
                 return Note.A_5_SHARP;
             }
 
-            if (Arrays.equals(buttons, new boolean[] {true, false, false, false, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {true, false, false, false})) {
                 return Note.B_5;
             }
 
-            if (Arrays.equals(buttons, new boolean[] {false, false, false, false, false, false, false, false, false, false, false, false})) {
+            if (Arrays.equals(buttons, new boolean[] {false, false, false, false})) {
                 return Note.NULL; //Should be C_6, need to fall through without baseline
             }
 
-        } else if (currentOcarina.equals("12Hole")) {
+        } else if (buttons.length == 12) {
 
             if (Arrays.equals(buttons, new boolean[] {true, true, true, true, true, true, true, true, true, true, true, true})) {
                 return Note.A_4;
